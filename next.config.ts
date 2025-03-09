@@ -1,13 +1,21 @@
 import type { NextConfig } from 'next';
 import withBundleAnalyzer from '@next/bundle-analyzer';
+import withPWA from 'next-pwa';
 
-const withAnalyzer = withBundleAnalyzer({
+const analyzerProvider = withBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
   openAnalyzer: true,
 });
 
-const nextConfig: NextConfig = withAnalyzer({
-  reactStrictMode: true,
+const PWAProvider = withPWA({
+  dest: 'public',
+  disable: process.env.NODE_ENV === 'development',
 });
 
-export default nextConfig;
+const nextConfig: NextConfig = {
+  reactStrictMode: true,
+};
+
+// TODO: fix error
+// @ts-ignore
+export default PWAProvider(analyzerProvider(nextConfig));
