@@ -2,7 +2,6 @@
   "compilerOptions": {
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
@@ -14,7 +13,8 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": { "@/*": ["./src/*"] },
-    "typeRoots": ["./node_modules/@types", "./src/types"]
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "allowJs": true
   },
   "include": ["next-env.d.ts", "src/types/next-pwa.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
