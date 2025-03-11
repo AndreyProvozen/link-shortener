@@ -2,9 +2,9 @@ import NextLink, { LinkProps } from 'next/link';
 import React, { AnchorHTMLAttributes, FC } from 'react';
 
 const linkVariants = {
-  primary: 'text-white hover:text-pink',
-  secondary: 'text-darkPink hover:text-pink',
-  button: 'text-white text-2xl rounded-md hover:bg-lightPink bg-pink px-6 py-2.5 active:bg-darkPink',
+  primary: 'text-white-50 hover:text-pink-500',
+  secondary: 'text-pink-700 hover:text-pink-500',
+  button: 'text-white-50 text-2xl rounded-md hover:bg-pink-300 bg-pink-500 px-6 py-2.5 active:bg-pink-700',
 };
 
 type NextLinkProps = LinkProps & AnchorHTMLAttributes<HTMLAnchorElement>;
