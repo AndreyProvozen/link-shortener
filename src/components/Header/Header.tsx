@@ -18,7 +18,7 @@ const Header: FC<Props> = ({ textBlack, containerClasses = '' }) => {
 
   return (
     <header
-      className={`${textBlack ? 'text-black-900 border-b-2 border-gray-100' : 'text-white-50'} ${containerClasses} z-40 py-5`}
+      className={`${textBlack ? 'text-black-900 border-b-2 border-gray-100' : 'text-white-50'} ${containerClasses} z-40 p-5`}
     >
       <div className="container max-w-screen-desktop mx-auto flex justify-between items-center text-xl">
         <Link

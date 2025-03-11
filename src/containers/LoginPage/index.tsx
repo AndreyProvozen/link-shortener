@@ -1,8 +1,7 @@
 import React, { FC, useState } from 'react';
 
 import { Button, Link } from '@/atoms';
-import { Header } from '@/components';
-import { HeroBackground } from '@/icons';
+import { FullScreenWrapper } from '@/components';
 
 const LoginPage: FC = () => {
   const [email, setEmail] = useState('');
@@ -15,12 +14,10 @@ const LoginPage: FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between relative">
-      <HeroBackground className="absolute inset-0 w-full h-full z-0" preserveAspectRatio="none" />
-      <Header containerClasses="px-5" />
+    <FullScreenWrapper>
       <div className="text-center flex flex-col items-center bg-white-50 gap-2 px-20 py-10 my-auto rounded-md mx-auto z-10">
-        <h1 className="text-5xl text-black-500 font-bold">Login</h1>
-        <p className="text-xl max-w-80">Login to your account to continue</p>
+        <h1 className="text-5xl font-bold">Login</h1>
+        <p className="text-xl max-w-80 text-black-500">Login to your account to continue</p>
         <form onSubmit={handleOnSubmit} className="flex flex-col gap-2 w-full max-w-80">
           <input
             type="email"
@@ -43,14 +40,14 @@ const LoginPage: FC = () => {
         <Link href="/" variant="secondary" className="mt-3">
           Forgot password?
         </Link>
-        <div>
+        <div className="text-black-500">
           Don’t you have an account?{' '}
           <Link variant="secondary" href="/auth" className="mt-3">
             Register
           </Link>
         </div>
       </div>
-    </div>
+    </FullScreenWrapper>
   );
 };
 
