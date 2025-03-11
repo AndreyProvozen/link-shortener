@@ -1,8 +1,8 @@
 import React, { FC, useState } from 'react';
 
 import { Button, Link } from '@/atoms';
-import Image from 'next/image';
 import { Header } from '@/components';
+import { HeroBackground } from '@/icons';
 
 const LoginPage: FC = () => {
   const [email, setEmail] = useState('');
@@ -15,17 +15,10 @@ const LoginPage: FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between">
-      <Image
-        className="object-cover object-center z-[-1]"
-        alt="Login Background"
-        src="/svg/login-bg.svg"
-        sizes="100vw"
-        priority
-        fill
-      />
+    <div className="min-h-screen flex flex-col justify-between relative">
+      <HeroBackground className="absolute inset-0 w-full h-full z-0" preserveAspectRatio="none" />
       <Header containerClasses="px-5" />
-      <div className="text-center flex flex-col items-center bg-white-50 gap-2 px-20 py-10 my-auto rounded-md mx-auto">
+      <div className="text-center flex flex-col items-center bg-white-50 gap-2 px-20 py-10 my-auto rounded-md mx-auto z-10">
         <h1 className="text-5xl text-black-500 font-bold">Login</h1>
         <p className="text-xl max-w-80">Login to your account to continue</p>
         <form onSubmit={handleOnSubmit} className="flex flex-col gap-2 w-full max-w-80">
@@ -47,7 +40,7 @@ const LoginPage: FC = () => {
             Login
           </Button>
         </form>
-        <Link href="/" className="mt-3">
+        <Link href="/" variant="secondary" className="mt-3">
           Forgot password?
         </Link>
         <div>
