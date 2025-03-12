@@ -13,8 +13,9 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": { "@/*": ["./src/*"] },
-    "typeRoots": ["./node_modules/@types", "./src/types"],
-    "allowJs": true
+    "typeRoots": ["./node_modules/@types", "./node_modules/@testing-library", "./src/types"],
+    "allowJs": true,
+    "types": ["jest", "node", "jest-dom"]
   },
   "include": ["next-env.d.ts", "src/types/next-pwa.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

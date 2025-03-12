@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "PORT=3002 next dev",
+    "test": "jest",
     "build": "PORT=3002 next build",
     "start": "next start",
     "lint": "next lint",
@@ -21,6 +22,10 @@
     "@eslint/eslintrc": "^3.3.0",
     "@next/bundle-analyzer": "^15.2.1",
     "@tailwindcss/postcss": "^4.0.12",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@types/jest": "^29.5.14",
     "@types/node": "^20.0.0",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
@@ -30,8 +35,12 @@
     "eslint-config-next": "15.2.1",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.3",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "prettier": "^3.5.3",
     "tailwindcss": "^3.3.3",
+    "ts-jest": "^29.2.6",
+    "ts-node": "^10.9.2",
     "typescript": "^5.0.2"
   }
 }
