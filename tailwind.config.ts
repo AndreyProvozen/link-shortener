@@ -10,30 +10,12 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      desktop: '1200px',
-      'desktop-small': '1023px',
-      tablet: '767px',
-      'tablet-small': '640px',
-      mobile: '500px',
-      'mobile-small': '400px',
-      'max-desktop': {
-        max: '1200px',
-      },
-      'max-desktop-small': {
-        max: '1023px',
-      },
-      'max-tablet': {
-        max: '767px',
-      },
-      'max-tablet-small': {
-        max: '640px',
-      },
-      'max-mobile': {
-        max: '500px',
-      },
-      'max-mobile-small': {
-        max: '400px',
-      },
+      desktop: { max: '1200px' },
+      'desktop-small': { max: '1023px' },
+      tablet: { max: '767px' },
+      'tablet-small': { max: '640px' },
+      mobile: { max: '500px' },
+      'mobile-small': { max: '400px' },
     },
     colors: {
       white: {

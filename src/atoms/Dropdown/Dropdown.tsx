@@ -1,6 +1,6 @@
-import { type FC, type ReactElement, useEffect, useRef, useState } from 'react';
+import { FC, ReactElement, useEffect, useRef, useState } from 'react';
 
-import DropdownPopUp, { type DropdownDataProps } from './DropdownPopUp';
+import DropdownPopUp, { DropdownDataProps } from './DropdownPopUp';
 import { DROPDOWN_TEST_IDS } from './testIds';
 
 interface Props {

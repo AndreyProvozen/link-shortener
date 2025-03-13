@@ -1,17 +1,13 @@
-import { useRouter } from 'next/router';
 import { FC } from 'react';
-
 import { PageMeta } from '@/atoms';
 import Activation from '@/containers/ActivationStatusPage';
+import { GetServerSidePropsContext } from 'next';
 
 interface Props {
-  data: string;
+  isSuccess: boolean;
 }
 
-const ActivationPage: FC<Props> = () => {
-  const { query } = useRouter();
-
-  const isSuccess = query.status === 'success';
+const ActivationPage: FC<Props> = ({ isSuccess }) => {
   const statusText = isSuccess ? 'Success' : 'Failed';
 
   const META_TITLE = `Activation ${statusText} Page`;
@@ -23,6 +19,12 @@ const ActivationPage: FC<Props> = () => {
       <Activation isSuccess={isSuccess} />
     </>
   );
+};
+
+export const getServerSideProps = async ({ query }: GetServerSidePropsContext) => {
+  const isSuccess = query.status === 'success';
+
+  return { props: { isSuccess } };
 };
 
 export default ActivationPage;

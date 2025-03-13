@@ -1,4 +1,4 @@
-import { type Dispatch, type FC, type ReactElement, type SetStateAction } from 'react';
+import { Dispatch, FC, ReactElement, SetStateAction } from 'react';
 
 import clsx from 'clsx';
 

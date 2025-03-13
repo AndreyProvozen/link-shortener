@@ -1,5 +1,5 @@
 import { Link } from '@/atoms';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 import { FullScreenWrapper } from '@/components';
 
@@ -9,15 +9,13 @@ interface Props {
 
 const ActivationPage: FC<Props> = ({ isSuccess }) => (
   <FullScreenWrapper blobsColor={isSuccess ? '#05c148' : '#c1002a'}>
-    <div className="bg-white-50 text-center flex flex-col items-center gap-2  px-20 py-10 mx-auto rounded-md my-auto z-10">
-      <h1 className="text-5xl">{isSuccess ? 'Activation Success' : 'Activation Failed'}</h1>
-      <p className="text-xl max-w-80 text-black-500">
-        {isSuccess ? 'Your account has been successfully activated' : 'Your account has not been activated'}
-      </p>
-      <Link variant="button" href="/" className="mt-3">
-        Go to Home
-      </Link>
-    </div>
+    <h1 className="text-4xl mb-2 font-bold">{`Activation ${isSuccess ? 'Success' : 'Failed'}`}</h1>
+    <p className="text-xl max-w-80 mx-auto text-black-500 mb-5">
+      {`Your account has ${isSuccess ? 'been successfully' : 'not been'} activated`}
+    </p>
+    <Link variant="button" href="/">
+      Go to Home
+    </Link>
   </FullScreenWrapper>
 );
 
