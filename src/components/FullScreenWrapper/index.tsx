@@ -1,1 +1,1 @@
-export { default } from './FullScreenWrapper';
+export { default, BACKGROUND_VARIANTS } from './FullScreenWrapper';

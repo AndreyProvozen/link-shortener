@@ -2,14 +2,11 @@ import { FC } from 'react';
 
 import { PageMeta } from '@/atoms';
 import LoginPage from '@/containers/LoginPage';
-
-const META_TITLE = 'Login Page';
-const META_DESCRIPTION =
-  'Login Page provides a detailed overview of the login process. It includes information about the login status, any errors or issues encountered during the login process, and any relevant details or context that may be helpful in understanding the login process.';
+import { META } from '@/constants';
 
 const Login: FC = () => (
   <>
-    <PageMeta title={META_TITLE} description={META_DESCRIPTION} noIndex />
+    <PageMeta title={META.LOGIN.TITLE} description={META.LOGIN.DESCRIPTION} noIndex />
     <LoginPage />
   </>
 );

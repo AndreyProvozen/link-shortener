@@ -1,21 +1,40 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren, memo } from 'react';
 import { Header } from '@/components';
-import { HeroBackground } from '@/icons';
+import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 
-interface Props extends PropsWithChildren {
-  blobsColor?: string;
+export const enum BACKGROUND_VARIANTS {
+  WAVE = 'wave',
+  BLOB = 'blob',
 }
 
-const FullScreenWrapper: FC<Props> = ({ children, blobsColor = '#FC88ED' }) => (
+interface Props extends PropsWithChildren {
+  patternColor?: string;
+  backgroundVariant?: BACKGROUND_VARIANTS;
+}
+
+const HeroBGWave = dynamic(() => import('@/icons/HeroBGWave'), { ssr: false });
+const HeroBGBlob = dynamic(() => import('@/icons/HeroBGBlob'), { ssr: false });
+
+const FullScreenWrapper: FC<Props> = ({ children, patternColor = '#FC88ED', backgroundVariant }) => (
   <div className="min-h-screen flex flex-col justify-between relative">
-    <HeroBackground className="absolute inset-0 w-full h-full z-0" preserveAspectRatio="none" blobsColor={blobsColor} />
+    {backgroundVariant === BACKGROUND_VARIANTS.BLOB ? (
+      <HeroBGBlob className="absolute inset-0 w-full h-full z-0" preserveAspectRatio="none" blobsColor={patternColor} />
+    ) : (
+      <HeroBGWave className="absolute inset-0 w-full h-full z-0" preserveAspectRatio="none" waveColor={patternColor} />
+    )}
     <Header />
     <div className="flex flex-col items-center px-5 mx-auto my-auto text-center">
-      <div className="w-full max-w-lg bg-white-50 tablet-small:px-10 tablet-small:py-5 px-14 py-7 rounded-xl z-10">
+      <motion.div
+        className="shadow-xl w-full max-w-lg bg-white-50 tablet-small:px-10 tablet-small:py-5 px-14 py-7 rounded-xl z-10"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.3 }}
+      >
         {children}
-      </div>
+      </motion.div>
     </div>
   </div>
 );
 
-export default FullScreenWrapper;
+export default memo(FullScreenWrapper);

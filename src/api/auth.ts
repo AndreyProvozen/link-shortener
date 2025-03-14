@@ -5,7 +5,7 @@ interface CredentialsProps {
   password: string;
 }
 
-export const signup = async ({ email, password }: CredentialsProps) => {
+export const signUp = async ({ email, password }: CredentialsProps) => {
   const response = await customFetch('/signup', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

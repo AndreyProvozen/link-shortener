@@ -1,18 +1,12 @@
 import { act, render, screen } from '@testing-library/react';
-import { FullScreenWrapper } from '..';
+import { BACKGROUND_VARIANTS, FullScreenWrapper } from '..';
 import { useRouter, NextRouter } from 'next/router';
 
 const mockedUseRouter = useRouter as jest.Mock<Partial<NextRouter>>;
 
-jest.mock('@/icons', () => ({
-  HeroBackground: ({ blobsColor }: { blobsColor?: string }) => (
-    <div data-testid="hero-background" style={{ backgroundColor: blobsColor }} />
-  ),
-}));
+const MOCK_PROPS = { children: 'Test Content', patternColor: '#330020' };
 
-const MOCK_PROPS = { children: 'Test Content', blobsColor: '#330020' };
-
-const setup = async () => await act(async () => render(<FullScreenWrapper {...MOCK_PROPS} />));
+const setup = async (props = {}) => await act(async () => render(<FullScreenWrapper {...MOCK_PROPS} {...props} />));
 
 describe('FullScreenWrapper', () => {
   beforeEach(() => {
@@ -26,9 +20,15 @@ describe('FullScreenWrapper', () => {
     expect(children).toBeInTheDocument();
   });
 
-  it('applies the correct blob color', async () => {
-    await setup();
-    const heroBackground = screen.getByTestId('hero-background');
-    expect(heroBackground).toHaveStyle(`background-color: ${MOCK_PROPS.blobsColor}`);
+  [
+    { variant: BACKGROUND_VARIANTS.BLOB, testId: 'hero-bg-blob' },
+    { variant: BACKGROUND_VARIANTS.WAVE, testId: 'hero-bg-wave' },
+  ].forEach(({ variant, testId }) => {
+    it(`applies the correct bg variant: ${variant}`, async () => {
+      await setup({ backgroundVariant: variant });
+
+      const heroBackground = screen.getByTestId(testId);
+      expect(heroBackground).toBeInTheDocument();
+    });
   });
 });
