@@ -6,3 +6,5 @@ export enum SCREEN_SIZES {
   MOBILE_BELOW = '(max-width: 500px)',
   MOBILE_SMALL_BELOW = '(max-width: 400px)',
 }
+
+export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

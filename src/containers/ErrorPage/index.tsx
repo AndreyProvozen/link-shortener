@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Error: FC<Props> = ({ statusCode }) => (
-  <FullScreenWrapper blobsColor="#c1002a">
+  <FullScreenWrapper blobsColor="#ff1a1a">
     <p className="text-[160px] mobile:text-[112px] leading-none font-bold">{statusCode}</p>
     <p className="text-2xl font-bold mobile:text-lg mobile:leading-none">OPPS! PAGE NOT FOUND</p>
     <p className="text-2xl text-black-500 mb-5 mobile:text-lg">

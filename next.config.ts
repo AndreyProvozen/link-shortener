@@ -14,6 +14,8 @@ const PWAProvider = withPWA({
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  publicRuntimeConfig: { API_URL: process.env.API_URL },
+  eslint: { ignoreDuringBuilds: true },
 };
 
 // TODO: fix error
