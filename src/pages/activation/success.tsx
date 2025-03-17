@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import { PageMeta } from '@/atoms';
-import ActivationSuccess from '@/containers/ActivationSuccess';
+import ActivationSuccessPage from '@/containers/ActivationSuccessPage';
 import { META } from '@/constants';
 
-const ActivationSuccessPage: FC = () => (
+const ActivationSuccess: FC = () => (
   <>
     <PageMeta title={META.ACTIVATION_SUCCESS.TITLE} description={META.ACTIVATION_SUCCESS.DESCRIPTION} noIndex />
-    <ActivationSuccess />
+    <ActivationSuccessPage />
   </>
 );
 
-export default ActivationSuccessPage;
+export default ActivationSuccess;
