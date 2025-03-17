@@ -1,10 +1,11 @@
 import { FC, FormEvent, useState } from 'react';
 
-import { Button, Input, Link } from '@/atoms';
+import { Button, Divider, Input, Link } from '@/atoms';
 import { FullScreenWrapper } from '@/components';
 import { EMAIL_REGEX } from '@/constants';
 import { signUp } from '@/api';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 interface ErrorsProps {
   email?: string;
@@ -65,7 +66,7 @@ const SignUpPage: FC = () => {
     <FullScreenWrapper>
       <h1 className="text-5xl font-bold mb-1">Sign Up</h1>
       <p className="text-xl max-w-80 text-black-500 mb-6">Create an account to get started</p>
-      <form onSubmit={handleOnSubmit} className="text-start flex flex-col gap-2 w-full max-w-80 mb-6">
+      <form onSubmit={handleOnSubmit} className="text-start flex flex-col gap-2 w-full max-w-80 mb-4">
         <Input
           type="email"
           error={errors.email}
@@ -100,7 +101,11 @@ const SignUpPage: FC = () => {
           Sign Up
         </Button>
       </form>
-      <div className="text-black-500 mt-1">
+      <Divider text="or" className="mb-4" />
+      <Button className="flex items-center gap-2 w-full justify-center" variant="secondary">
+        <Image width={24} height={24} src="/svg/google.svg" alt="Continue with Google image" /> Continue with Google
+      </Button>
+      <div className="text-black-500 mt-6">
         Already have an account?{' '}
         <Link variant="secondary" href="/login">
           Login

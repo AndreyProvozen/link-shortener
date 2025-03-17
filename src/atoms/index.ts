@@ -4,3 +4,4 @@ export { default as PageMeta } from './PageMeta';
 export { default as Dropdown } from './Dropdown';
 export { default as Drover } from './Drover';
 export { default as Input } from './Input';
+export { default as Divider } from './Divider';
