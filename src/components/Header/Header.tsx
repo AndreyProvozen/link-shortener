@@ -24,7 +24,7 @@ const Header: FC<Props> = ({ textBlack, containerClasses = '' }) => {
         <Link
           href="/"
           style={{ textShadow: '3px 3px 6px rgba(0, 0, 0, 0.5)' }}
-          className="text-3xl font-extrabold max-mobile-small:text-2xl"
+          className="text-3xl font-extrabold mobile-small:text-2xl"
         >
           Link Shortener
         </Link>

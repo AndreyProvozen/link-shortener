@@ -15,6 +15,11 @@ const META = {
     TITLE: 'Activation Successful',
     DESCRIPTION: 'Your account has been activated successfully.',
   },
+  HOME: {
+    TITLE: 'Link Shortener',
+    DESCRIPTION:
+      'Create short, custom links with ease using our Link Shortener. Boost your online presence and track link clicks with our advanced analytics. Try it now for free!',
+  },
 };
 
 export { META };

@@ -5,3 +5,6 @@ export { default as CloseIcon } from './Close';
 export { default as ChevronIcon } from './Chevron';
 export { default as HeroBGBlob } from './HeroBGBlob';
 export { default as HeroBGWave } from './HeroBGWave';
+export { default as HeroBGWaves } from './HeroBGWaves';
+export { default as Heart } from './Heart';
+export { default as BarChart } from './BarChart';
