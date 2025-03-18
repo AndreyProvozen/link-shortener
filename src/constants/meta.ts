@@ -1,4 +1,4 @@
-const META = {
+export const META = {
   SIGN_UP: {
     TITLE: 'Sign Up',
     DESCRIPTION: 'Sign up to our platform and start using our services today.',
@@ -21,5 +21,3 @@ const META = {
       'Create short, custom links with ease using our Link Shortener. Boost your online presence and track link clicks with our advanced analytics. Try it now for free!',
   },
 };
-
-export { META };

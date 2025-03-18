@@ -1,6 +1,7 @@
 import { Header } from '@/components';
 import { HeroBGWaves } from '@/icons';
-import { QualityBlock, InfoBlock } from './components';
+import { QualityBlock, InfoBlock, TextWithImage } from './components';
+import { MOCK_TEXT_WITH_IMAGE } from '@/constants';
 
 const HomePage = () => (
   <>
@@ -10,6 +11,17 @@ const HomePage = () => (
     </div>
     <QualityBlock />
     <InfoBlock btnHref="#" btnText="Get lorem started" title="lorem ipsi dolar sit amer" />
+    {MOCK_TEXT_WITH_IMAGE.map(({ listData, linkData, text, title }, index) => (
+      <TextWithImage
+        key={title}
+        linkData={linkData}
+        imageFirst={index % 2 !== 0}
+        title={title}
+        containerClasses="my-10"
+        featuresListData={listData}
+        text={text}
+      />
+    ))}
   </>
 );
 
