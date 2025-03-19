@@ -32,12 +32,12 @@ const TextWithImage: FC<Props> = ({ linkData, text, imageFirst, title, featuresL
     data-testid={TEXT_WITH_IMAGE_TEST_IDS.ROOT}
     className={clsx(
       { 'flex-row-reverse': imageFirst },
-      'flex justify-between max-w-screen-desktop px-5 mx-auto desktop-small:block overflow-hidden',
+      'flex justify-between max-w-screen-container px-5 mx-auto desktop-small:block overflow-hidden',
       containerClasses
     )}
   >
-    <motion.div variants={imageFirst ? fadeInRight : fadeInLeft} className="px-5 desktop-small:mx-auto">
-      <Image src={linkData.src} alt={linkData.alt} height={400} width={500} />
+    <motion.div variants={imageFirst ? fadeInRight : fadeInLeft} className="px-5">
+      <Image src={linkData.src} alt={linkData.alt} height={400} width={500} className="desktop-small:mx-auto" />
     </motion.div>
     <motion.div variants={imageFirst ? fadeInLeft : fadeInRight} className="pt-5 max-w-[700px] desktop-small:mx-auto">
       <h2 className="text-2xl font-bold mx-auto text-center mb-2">{title}</h2>

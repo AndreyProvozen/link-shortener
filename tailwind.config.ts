@@ -10,6 +10,7 @@ const config: Config = {
   ],
   theme: {
     screens: {
+      container: '1200px',
       desktop: { max: '1200px' },
       'desktop-small': { max: '1023px' },
       tablet: { max: '767px' },
