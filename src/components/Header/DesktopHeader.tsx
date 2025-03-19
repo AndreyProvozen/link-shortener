@@ -14,7 +14,7 @@ const DesktopHeader: FC<Props> = () => {
   const { push } = useRouter();
   const session = false;
 
-  const [isSignOutModalOpen, setIsSignOutModalOpen] = useState(false);
+  const [, setIsSignOutModalOpen] = useState(false);
 
   const dropdownData = useMemo(
     () =>

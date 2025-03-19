@@ -1,10 +1,10 @@
+import clsx from 'clsx';
 import Image from 'next/image';
 import { FC } from 'react';
 
 import { SCREEN_SIZES } from '@/constants';
-import { BarChartIcon, HeartIcon } from '@/icons';
-import clsx from 'clsx';
 import { useMediaQuery } from '@/hooks';
+import { BarChartIcon, HeartIcon } from '@/icons';
 
 export const qualitiesList = [
   {

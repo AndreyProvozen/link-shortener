@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+
 import Divider from './Divider';
 import { DIVIDER_TEST_IDS } from './testids';
 

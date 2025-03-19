@@ -1,7 +1,8 @@
 import { Header } from '@/components';
-import { HeroBGWaves } from '@/icons';
-import { QualityBlock, InfoBlock, TextWithImage } from './components';
 import { MOCK_TEXT_WITH_IMAGE } from '@/constants';
+import { HeroBGWaves } from '@/icons';
+
+import { QualityBlock, InfoBlock, TextWithImage } from './components';
 
 const HomePage = () => (
   <>

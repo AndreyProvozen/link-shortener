@@ -1,8 +1,8 @@
 import { NextPageContext } from 'next';
 
 import PageMeta from '@/atoms/PageMeta';
-import Error from '@/containers/ErrorPage';
 import { META } from '@/constants';
+import Error from '@/containers/ErrorPage';
 
 interface Props {
   statusCode: number;

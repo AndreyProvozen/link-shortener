@@ -1,5 +1,7 @@
 import { FC } from 'react';
+
 import { CloseIcon } from '@/icons';
+
 import { DROVER_TEST_IDS } from './testIds';
 
 interface Props {

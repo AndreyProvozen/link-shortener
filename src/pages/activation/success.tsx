@@ -1,7 +1,8 @@
 import { FC } from 'react';
+
 import { PageMeta } from '@/atoms';
-import ActivationSuccessPage from '@/containers/ActivationSuccessPage';
 import { META } from '@/constants';
+import ActivationSuccessPage from '@/containers/ActivationSuccessPage';
 
 const ActivationSuccess: FC = () => (
   <>

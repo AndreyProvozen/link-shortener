@@ -1,9 +1,9 @@
+import Image from 'next/image';
 import { FC } from 'react';
 
 import { Button, Divider, Input, Link } from '@/atoms';
 import { FullScreenWrapper } from '@/components';
 
-import Image from 'next/image';
 import useSignUpForm from './hooks/useSignUpForm';
 
 const SignUpPage: FC = () => {

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-import { FullScreenWrapper, BACKGROUND_VARIANTS } from '@/components';
 import { Link } from '@/atoms';
+import { FullScreenWrapper, BACKGROUND_VARIANTS } from '@/components';
 
 interface Props {
   statusCode: number;

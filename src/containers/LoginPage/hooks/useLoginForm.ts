@@ -1,5 +1,6 @@
-import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/router';
+import { useState, FormEvent } from 'react';
+
 import { login } from '@/api';
 import { EMAIL_REGEX } from '@/constants';
 

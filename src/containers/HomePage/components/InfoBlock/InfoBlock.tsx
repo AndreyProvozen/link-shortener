@@ -1,5 +1,6 @@
-import { Link } from '@/atoms';
 import { FC } from 'react';
+
+import { Link } from '@/atoms';
 
 interface Props {
   btnHref: string;

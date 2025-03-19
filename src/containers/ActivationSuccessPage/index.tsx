@@ -1,6 +1,6 @@
-import { Link } from '@/atoms';
 import { FC } from 'react';
 
+import { Link } from '@/atoms';
 import { FullScreenWrapper, BACKGROUND_VARIANTS } from '@/components';
 
 const ActivationSuccessPage: FC = () => (

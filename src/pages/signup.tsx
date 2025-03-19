@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
 import { PageMeta } from '@/atoms';
-import SignUpPage from '@/containers/SignUpPage';
 import { META } from '@/constants';
+import SignUpPage from '@/containers/SignUpPage';
 
 const SignUp: FC = () => (
   <>

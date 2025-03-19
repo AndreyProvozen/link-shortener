@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import { DIVIDER_TEST_IDS } from './testids';
 
 interface Props {

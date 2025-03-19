@@ -1,8 +1,9 @@
 import { render } from '@testing-library/react';
-
-import PageMeta from './PageMeta';
 import { ReactNode } from 'react';
 
+import PageMeta from './PageMeta';
+
+// eslint-disable-next-line react/display-name
 jest.mock('next/head', () => ({ children }: { children: ReactNode }) => <>{children}</>);
 
 const MOCK_PROPS = { title: 'Test Title', description: 'Test Description' };

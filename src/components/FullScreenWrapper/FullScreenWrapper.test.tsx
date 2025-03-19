@@ -1,6 +1,7 @@
 import { act, render, screen } from '@testing-library/react';
-import { BACKGROUND_VARIANTS, FullScreenWrapper } from '..';
 import { useRouter, NextRouter } from 'next/router';
+
+import { BACKGROUND_VARIANTS, FullScreenWrapper } from '..';
 
 const mockedUseRouter = useRouter as jest.Mock<Partial<NextRouter>>;
 

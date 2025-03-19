@@ -1,7 +1,8 @@
-import { FC, PropsWithChildren, memo } from 'react';
-import { Header } from '@/components';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
+import { FC, PropsWithChildren, memo } from 'react';
+
+import { Header } from '@/components';
 
 export const enum BACKGROUND_VARIANTS {
   WAVE = 'wave',
