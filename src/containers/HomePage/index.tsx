@@ -1,5 +1,5 @@
 import { Accordion } from '@/atoms';
-import { Header } from '@/components';
+import { Footer, Header } from '@/components';
 import { MOCK_QUESTIONS, MOCK_TEXT_WITH_IMAGE } from '@/constants';
 import { HeroBGWaves } from '@/icons';
 
@@ -7,7 +7,7 @@ import { QualityBlock, InfoBlock, TextWithImage } from './components';
 
 const HomePage = () => (
   <>
-    <div className="relative min-h-screen flex flex-col ">
+    <div style={{ minHeight: '100vh' }} className="relative flex flex-col ">
       <Header />
       <HeroBGWaves className="absolute inset-0 w-full h-full" preserveAspectRatio="none" />
     </div>
@@ -24,10 +24,12 @@ const HomePage = () => (
         text={text}
       />
     ))}
+    <InfoBlock btnHref="/auth" btnText="Sign up" title="Sign up to see full link statistic" />
     <div className="container max-w-screen-desktop mx-auto px-5 my-10">
       <p className="text-4xl font-bold mb-5 text-center">Frequently Asked Questions</p>
       <Accordion accordionItems={MOCK_QUESTIONS} />
     </div>
+    <Footer />
   </>
 );
 

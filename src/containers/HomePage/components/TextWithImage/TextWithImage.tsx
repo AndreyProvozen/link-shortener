@@ -36,14 +36,14 @@ const TextWithImage: FC<Props> = ({ linkData, text, imageFirst, title, featuresL
       containerClasses
     )}
   >
-    <motion.div variants={imageFirst ? fadeInRight : fadeInLeft} className="px-5">
+    <motion.div variants={imageFirst ? fadeInRight : fadeInLeft} className="px-5 shrink-0">
       <Image src={linkData.src} alt={linkData.alt} height={400} width={500} className="desktop-small:mx-auto" />
     </motion.div>
     <motion.div variants={imageFirst ? fadeInLeft : fadeInRight} className="pt-5 max-w-[700px] desktop-small:mx-auto">
-      <h2 className="text-2xl font-bold mx-auto text-center mb-2">{title}</h2>
-      <div dangerouslySetInnerHTML={{ __html: text }} />
+      <h2 className="text-2xl font-bold mx-auto text-center mb-2 ">{title}</h2>
+      <div className="text-black-500" dangerouslySetInnerHTML={{ __html: text }} />
       {featuresListData?.map(feature => (
-        <div className="flex mt-5" key={feature}>
+        <div className="flex mt-5 font-medium items-start" key={feature}>
           <svg viewBox="0 0 24 24" width="24px" className="shrink-0 mr-2 ">
             <use href="#star-icon" />
           </svg>

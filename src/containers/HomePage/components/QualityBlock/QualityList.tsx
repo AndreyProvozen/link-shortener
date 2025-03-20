@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FC } from 'react';
 
@@ -49,15 +50,28 @@ const QualityList: FC = () => {
   const isMobile = useMediaQuery(SCREEN_SIZES.TABLET_BELOW);
 
   return (
-    <div className="grid grid-cols-6 justify-items-center tablet:grid-cols-2 mobile:grid-cols-1 gap-4">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }}
+      className="grid grid-cols-6 justify-items-center tablet:grid-cols-2 mobile:grid-cols-1 gap-4"
+    >
       {qualitiesList.map(({ image, title, subTitle, gridClasses }) => (
-        <div className={clsx('flex flex-col items-center max-w-xs mx-3', { [gridClasses]: !isMobile })} key={subTitle}>
+        <motion.div
+          key={subTitle}
+          className={clsx('flex flex-col items-center max-w-xs mx-3', { [gridClasses]: !isMobile })}
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 80, damping: 10 } },
+          }}
+        >
           {image}
           <p className="text-2xl font-bold">{title}</p>
           <p className="max-w-xs text-black-500">{subTitle}</p>
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 

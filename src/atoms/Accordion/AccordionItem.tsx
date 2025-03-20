@@ -22,7 +22,7 @@ const AccordionItem: FC<Props> = ({ title, description, isOpened, onClick }) => 
       </svg>
     </button>
     <div
-      className={`transition-max-height ease-in-out duration-300 overflow-hidden ${
+      className={`transition-max-height ease-in-out duration-300 text-black-500 overflow-hidden ${
         isOpened ? 'max-h-[1000px]' : 'max-h-0'
       }`}
       dangerouslySetInnerHTML={{ __html: description }}
