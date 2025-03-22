@@ -76,7 +76,7 @@ const DesktopHeader: FC<Props> = () => {
               />
             ),
           }
-        : { name: 'Sign in', link: '/auth' },
+        : { name: 'Sign in', link: '/login' },
     ],
     [session, dropdownData]
   );

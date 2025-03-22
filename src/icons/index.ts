@@ -8,6 +8,8 @@ export { default as StarIcon } from './Star';
 export { default as GitHub } from './GitHub';
 export { default as Steam } from './Steam';
 export { default as Instagram } from './Instagram';
+export { default as MouseIcon } from './Mouse';
+export { default as ArrowIcon } from './Arrow';
 export { default as HeroBGBlob } from './HeroBGBlob';
 export { default as HeroBGWave } from './HeroBGWave';
 export { default as HeroBGWaves } from './HeroBGWaves';

@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { ChangeEvent, FormEvent, useState } from 'react';
 
-import { Button } from '@/atoms';
-import { HeroBGWaves } from '@/icons';
+import { Button, Input } from '@/atoms';
+import { ArrowIcon, HeroBGWaves, MouseIcon } from '@/icons';
 
 const HeroSection = () => {
   const [longLink, setLongLink] = useState('');
@@ -16,7 +16,7 @@ const HeroSection = () => {
   return (
     <>
       <HeroBGWaves className="absolute inset-0 w-full h-full" preserveAspectRatio="none" />
-      <div className="container max-w-[1024px] text-center mx-auto text-lg text-white-50 z-10">
+      <div className="container max-w-[767px] px-5 text-center mx-auto text-lg text-white-50 z-10">
         <div className="mt-7 my-5 text-white">
           <motion.h1
             className="text-5xl"
@@ -35,24 +35,21 @@ const HeroSection = () => {
             Free URL Shortener for transforming long, ugly links into nice, memorable and trackable short URLs
           </motion.p>
         </div>
-        <form
-          onSubmit={handleOnSubmit}
-          className="mb-14 w-full relative flex flex-wrap items-stretch max-tablet-small:block"
-        >
-          <input
+        <form onSubmit={handleOnSubmit} className="mb-14 w-full relative flex gap-2 tablet-small:flex-col">
+          <Input
             type="search"
             value={longLink}
             onChange={handleInputChange}
             placeholder="Paste the URL to be shortened"
-            className="rounded-r-none bg-white border-[1px] border-gray flex-auto relative m-0 rounded-l px-3 py-2.5 max-tablet-small:w-full max-tablet-small:rounded-r focus:outline-none focus:border-pink"
           />
-          <Button
-            type="submit"
-            className="rounded-l-none text-center tablet-small:w-full tablet-small:rounded-l tablet-small:mt-4"
-          >
+          <Button type="submit" className="shrink-0 h-[48px]">
             generate link
           </Button>
         </form>
+      </div>
+      <div className="absolute animate-bounce bottom-2 left-1/2 -translate-x-1/2 z-10 text-white-50">
+        <MouseIcon width={36} height={36} />
+        <ArrowIcon width={24} height={24} className="mx-auto" />
       </div>
     </>
   );

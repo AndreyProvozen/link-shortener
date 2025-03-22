@@ -1,7 +1,7 @@
 import { InputHTMLAttributes, FC } from 'react';
 
 const inputVariants = {
-  base: 'border-2 rounded-md px-4 py-2 focus:outline-none focus:border-pink-500 transition w-full',
+  base: 'border-2 rounded-md px-4 py-2 text-black-900 focus:outline-none focus:border-pink-500 transition w-full',
   primary: 'border-white-300',
   error: 'border-red-500',
 };
