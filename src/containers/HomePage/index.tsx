@@ -1,15 +1,14 @@
 import { Accordion } from '@/atoms';
 import { Footer, Header } from '@/components';
 import { MOCK_QUESTIONS, MOCK_TEXT_WITH_IMAGE } from '@/constants';
-import { HeroBGWaves } from '@/icons';
 
-import { QualityBlock, InfoBlock, TextWithImage } from './components';
+import { QualityBlock, InfoBlock, TextWithImage, HeroSection } from './components';
 
 const HomePage = () => (
   <>
-    <div style={{ minHeight: '100vh' }} className="relative flex flex-col ">
+    <div className="relative min-h-screen flex flex-col ">
       <Header />
-      <HeroBGWaves className="absolute inset-0 w-full h-full" preserveAspectRatio="none" />
+      <HeroSection />
     </div>
     <QualityBlock />
     <InfoBlock btnHref="#" btnText="Get lorem started" title="lorem ipsi dolar sit amer" />
