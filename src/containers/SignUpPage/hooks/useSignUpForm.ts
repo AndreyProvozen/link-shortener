@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import { useState, FormEvent } from 'react';
 
 import { signUp } from '@/api';
@@ -12,8 +11,6 @@ interface ErrorsProps {
 }
 
 const useSignUpForm = () => {
-  const router = useRouter();
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -53,8 +50,6 @@ const useSignUpForm = () => {
         setErrors(prev => ({ ...prev, general: res.message }));
         return;
       }
-
-      router.push('/');
     } finally {
       setIsLoading(false);
     }

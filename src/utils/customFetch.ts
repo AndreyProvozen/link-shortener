@@ -1,4 +1,7 @@
+import { refreshAccessToken } from '@/api';
+
 import getConfigVariable from './getConfigVariable';
+import { getTokens, clearTokens } from './tokenUtils';
 
 const API_URL = getConfigVariable('API_URL');
 
@@ -8,22 +11,26 @@ interface OptionProps {
   body?: BodyInit;
 }
 
-/**
- * A custom asynchronous function for making HTTP requests using the fetch API.
- *
- * @example
- * ```typescript
- * const data = await customFetch('https://api.example.com/data', { method: 'POST', body: JSON.stringify(payload) });
- * ```
- *
- * @param {string} url - The URL to send the HTTP request to.
- * @param {OptionProps} [options] - Additional options for the request (method, headers, body).
- * @returns {Promise<any>} A promise that resolves to the parsed JSON response from the server.
- */
-
-const customFetch = async (url: string, { method = 'GET', headers, body }: OptionProps = {}): Promise<any> => {
+const customFetch = async <T = any>(url: string, { method = 'GET', headers, body }: OptionProps = {}): Promise<T> => {
   try {
-    const response = await fetch(`${API_URL}/${url}`, { method, headers, body });
+    // eslint-disable-next-line prefer-const
+    let { accessToken, refreshToken } = getTokens();
+
+    const headersWithAuth = { Authorization: `Bearer ${accessToken}`, ...headers };
+    let response = await fetch(`${API_URL}/${url}`, { method, headers: headersWithAuth, body });
+
+    if (response.status === 401 && refreshToken) {
+      const isRefreshed = await refreshAccessToken();
+
+      if (isRefreshed) {
+        accessToken = getTokens().accessToken;
+        headersWithAuth.Authorization = `Bearer ${accessToken}`;
+        response = await fetch(`${API_URL}/${url}`, { method, headers: headersWithAuth, body });
+      } else {
+        clearTokens();
+        throw new Error('Session expired. Please log in again.');
+      }
+    }
 
     return await response.json();
   } catch (error: any) {

@@ -30,6 +30,7 @@ const LoginPage: FC = () => {
         <Button disabled={isLoading} type="submit">
           Login
         </Button>
+        {errors.general && <p className="text-red-500 text-center text-sm mt-1">{errors.general}</p>}
       </form>
       <Link href="/" variant="secondary">
         Forgot password?

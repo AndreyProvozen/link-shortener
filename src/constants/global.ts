@@ -8,3 +8,6 @@ export enum SCREEN_SIZES {
 }
 
 export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+export const ACCESS_TOKEN_KEY = 'LS_ACCESS_TOKEN';
+export const REFRESH_TOKEN_KEY = 'LS_REFRESH_TOKEN';
