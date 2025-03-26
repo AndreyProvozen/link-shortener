@@ -12,13 +12,15 @@ interface RefreshResponseProps {
 }
 
 export const signUp = async ({ email, password }: CredentialsProps) => {
-  const response = await customFetch('signup', {
+  const { message } = await customFetch('signup', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password }),
   });
 
-  return response;
+  if (message) return message;
+
+  return '';
 };
 
 export const login = async ({ email, password }: CredentialsProps) => {
@@ -28,9 +30,7 @@ export const login = async ({ email, password }: CredentialsProps) => {
     body: JSON.stringify({ email, password }),
   });
 
-  if (message) {
-    return message;
-  }
+  if (message) return message;
 
   setTokens({ accessToken, refreshToken });
   return '';

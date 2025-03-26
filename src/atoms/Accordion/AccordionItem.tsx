@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FC } from 'react';
 
 interface Props {
@@ -21,12 +22,19 @@ const AccordionItem: FC<Props> = ({ title, description, isOpened, onClick }) => 
         <use href="#chevron-icon" />
       </svg>
     </button>
-    <div
-      className={`transition-max-height ease-in-out duration-300 text-black-500 overflow-hidden ${
-        isOpened ? 'max-h-[1000px]' : 'max-h-0'
-      }`}
-      dangerouslySetInnerHTML={{ __html: description }}
-    />
+    <AnimatePresence>
+      {isOpened && (
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: 'auto', opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+          className="overflow-hidden text-black-500"
+        >
+          <div dangerouslySetInnerHTML={{ __html: description }} />
+        </motion.div>
+      )}
+    </AnimatePresence>
   </div>
 );
 
