@@ -15,7 +15,9 @@ const useSignUpForm = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
+  const [isActivateAccountModalOpen, setIsActivateAccountModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
   const [errors, setErrors] = useState<ErrorsProps>({});
 
   const validateForm = () => {
@@ -44,12 +46,10 @@ const useSignUpForm = () => {
 
     setIsLoading(true);
     try {
-      const res = await signUp({ email, password });
+      const errorMessage = await signUp({ email, password });
+      if (errorMessage) return setErrors(prev => ({ ...prev, general: errorMessage }));
 
-      if (res.message) {
-        setErrors(prev => ({ ...prev, general: res.message }));
-        return;
-      }
+      setIsActivateAccountModalOpen(true);
     } finally {
       setIsLoading(false);
     }
@@ -59,11 +59,13 @@ const useSignUpForm = () => {
     email,
     password,
     confirmPassword,
+    isActivateAccountModalOpen,
     isLoading,
     errors,
     setEmail,
     setPassword,
     setConfirmPassword,
+    setIsActivateAccountModalOpen,
     handleOnSubmit,
   };
 };

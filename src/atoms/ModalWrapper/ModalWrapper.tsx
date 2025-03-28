@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Dispatch, FC, ReactNode, RefObject, SetStateAction, useEffect, useRef, useState } from 'react';
 
@@ -8,10 +9,11 @@ import { MODAL_WRAPPER_TEST_IDS } from './testIds';
 
 interface Props {
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+  contentClasses?: string;
   children: ReactNode;
 }
 
-const ModalWrapper: FC<Props> = ({ setIsModalOpen, children }) => {
+const ModalWrapper: FC<Props> = ({ setIsModalOpen, children, contentClasses }) => {
   const [isVisible, setIsVisible] = useState(true);
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -40,7 +42,7 @@ const ModalWrapper: FC<Props> = ({ setIsModalOpen, children }) => {
         >
           <motion.div
             ref={modalRef}
-            className="overflow-y-auto bg-white-50 rounded-lg relative p-6 mx-4"
+            className={clsx('overflow-y-auto bg-white-50 rounded-lg relative p-6 mx-4', contentClasses)}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}

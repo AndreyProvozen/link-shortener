@@ -7,3 +7,4 @@ export { default as Input } from './Input';
 export { default as Divider } from './Divider';
 export { default as Accordion } from './Accordion';
 export { default as ModalWrapper } from './ModalWrapper';
+export { default as ErrorMessage } from './ErrorMessage';

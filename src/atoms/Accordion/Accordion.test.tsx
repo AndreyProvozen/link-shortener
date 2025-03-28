@@ -1,6 +1,12 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import { PropsWithChildren } from 'react';
 
 import Accordion from './Accordion';
+
+jest.mock('framer-motion', () => ({
+  motion: { div: ({ children }: PropsWithChildren) => <div>{children}</div> },
+  AnimatePresence: ({ children }: PropsWithChildren) => <>{children}</>,
+}));
 
 const MOCK_ACCORDION_ITEM = { title: 'Test title', description: 'Test description' };
 const { title, description } = MOCK_ACCORDION_ITEM;
@@ -12,14 +18,15 @@ describe('Accordion', () => {
     setup();
 
     const titleBlock = screen.getByText(title);
-    const descriptionBlock = screen.getByText(description);
 
     expect(titleBlock).toBeVisible();
-    expect(descriptionBlock).toHaveClass('max-h-0');
-    expect(descriptionBlock).toHaveTextContent(description);
+    expect(screen.queryByText(description)).not.toBeInTheDocument();
 
     fireEvent.click(titleBlock);
 
-    expect(descriptionBlock).toHaveClass('max-h-[1000px]');
+    const descriptionBlock = screen.getByText(description);
+
+    expect(descriptionBlock).toHaveTextContent(description);
+    expect(descriptionBlock).toBeVisible();
   });
 });
