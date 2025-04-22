@@ -1,5 +1,5 @@
-import type { NextConfig } from 'next';
 import withBundleAnalyzer from '@next/bundle-analyzer';
+import type { NextConfig } from 'next';
 import withPWA from 'next-pwa';
 
 const analyzerProvider = withBundleAnalyzer({
@@ -18,6 +18,5 @@ const nextConfig: NextConfig = {
   eslint: { ignoreDuringBuilds: true },
 };
 
-// TODO: fix error
-// @ts-ignore
+// @ts-expect-error TODO: fix error
 export default PWAProvider(analyzerProvider(nextConfig));
