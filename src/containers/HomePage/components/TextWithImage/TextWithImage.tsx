@@ -37,7 +37,14 @@ const TextWithImage: FC<Props> = ({ linkData, text, imageFirst, title, featuresL
     )}
   >
     <motion.div variants={imageFirst ? fadeInRight : fadeInLeft} className="px-5 shrink-0">
-      <Image src={linkData.src} alt={linkData.alt} height={400} width={500} className="desktop-small:mx-auto" />
+      <Image
+        loading="lazy"
+        src={linkData.src}
+        alt={linkData.alt}
+        height={400}
+        width={500}
+        className="desktop-small:mx-auto"
+      />
     </motion.div>
     <motion.div variants={imageFirst ? fadeInLeft : fadeInRight} className="pt-5 max-w-[700px] desktop-small:mx-auto">
       <h2 className="text-2xl font-bold mx-auto text-center mb-2 ">{title}</h2>

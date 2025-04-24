@@ -26,14 +26,9 @@ const HeroSection = () => {
           >
             Link Shortener
           </motion.h1>
-          <motion.p
-            className="max-w-lg mx-auto"
-            initial={{ opacity: 0, y: -40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
-          >
+          <p className="max-w-lg mx-auto min-h-14">
             Free URL Shortener for transforming long, ugly links into nice, memorable and trackable short URLs
-          </motion.p>
+          </p>
         </div>
         <form onSubmit={handleOnSubmit} className="mb-14 w-full relative flex gap-2 tablet-small:flex-col">
           <Input
