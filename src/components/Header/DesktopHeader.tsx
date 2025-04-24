@@ -25,14 +25,14 @@ const DesktopHeader: FC<Props> = () => {
                 <div className="flex items-center">
                   <Image
                     className="flex-shrink-0 rounded-full overflow-hidden mr-2 w-auto"
-                    src={session.user?.image || ''}
+                    src={'session.user?.image'}
                     width={48}
                     height={48}
                     alt=""
                   />
                   <div className="overflow-hidden">
-                    <p className="text-ellipsis overflow-hidden">{session.user?.name}</p>
-                    <p className="text-ellipsis overflow-hidden">{session.user?.email}</p>
+                    <p className="text-ellipsis overflow-hidden">{'session.user?.name'}</p>
+                    <p className="text-ellipsis overflow-hidden">{'session.user?.email'}</p>
                   </div>
                 </div>
               ),
@@ -65,7 +65,7 @@ const DesktopHeader: FC<Props> = () => {
                   <div className="flex mx-3">
                     <Image
                       className="rounded-full mr-2 w-auto"
-                      src={session.user?.image || ''}
+                      src={'session.user?.image'}
                       width={30}
                       height={30}
                       alt="User avatar"

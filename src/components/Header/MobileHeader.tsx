@@ -40,7 +40,7 @@ const MobileHeader: FC<Props> = ({ textBlack }) => {
               },
               {
                 name: 'Sign out',
-                handleFunction: signOut,
+                handleFunction: () => {},
               },
             ],
           }

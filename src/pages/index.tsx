@@ -29,9 +29,7 @@ const Home: FC<Props> = ({ initialUser }) => (
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const { user } = await refreshAccessToken({ req, res });
 
-  return {
-    props: { initialUser: user || null },
-  };
+  return { props: { initialUser: user || null } };
 };
 
 export default Home;
