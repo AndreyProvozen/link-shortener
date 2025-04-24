@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
 import { User } from '@/api/auth/types';
 import { UserProvider } from '@/providers';

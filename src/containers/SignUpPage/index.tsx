@@ -9,16 +9,13 @@ import ActivateAccountModal from './modals/ActivateAccountModal';
 
 const SignUpPage: FC = () => {
   const {
-    email,
-    password,
-    confirmPassword,
+    userData,
     isActivateAccountModalOpen,
     isLoading,
+    inputFields,
     errors,
-    setEmail,
+    setFormField,
     setIsActivateAccountModalOpen,
-    setPassword,
-    setConfirmPassword,
     handleOnSubmit,
   } = useSignUpForm();
 
@@ -28,27 +25,16 @@ const SignUpPage: FC = () => {
         <h1 className="text-5xl font-bold mb-1">Sign Up</h1>
         <p className="text-xl max-w-80 text-black-500 mb-4">Create an account to get started</p>
         <form onSubmit={handleOnSubmit} className="text-start flex flex-col gap-2 w-full max-w-80 mb-4">
-          <Input
-            type="email"
-            error={errors.email}
-            placeholder="Email"
-            value={email}
-            onChange={event => setEmail(event.target.value)}
-          />
-          <Input
-            type="password"
-            error={errors.password}
-            placeholder="Password"
-            value={password}
-            onChange={event => setPassword(event.target.value)}
-          />
-          <Input
-            type="password"
-            error={errors.confirmPassword}
-            placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={event => setConfirmPassword(event.target.value)}
-          />
+          {inputFields.map(({ name, type = 'text', placeholder }) => (
+            <Input
+              key={name}
+              type={type}
+              error={errors[name]}
+              placeholder={placeholder}
+              value={userData[name]}
+              onChange={event => setFormField(name, event.target.value)}
+            />
+          ))}
           <Button disabled={isLoading} type="submit">
             Sign Up
           </Button>

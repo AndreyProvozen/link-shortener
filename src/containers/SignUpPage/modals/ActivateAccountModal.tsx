@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction } from 'react';
+import { Dispatch, FC, SetStateAction } from 'react';
 
 import { ModalWrapper } from '@/atoms';
 import { EnvelopeIcon } from '@/icons';

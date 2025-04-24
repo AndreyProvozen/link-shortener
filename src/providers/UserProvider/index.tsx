@@ -1,8 +1,8 @@
 import { createContext, useContext, useMemo, useState } from 'react';
 
-import { ContextProps, ProviderProps } from './types';
-
 import { User } from '@/api/auth/types';
+
+import { ContextProps, ProviderProps } from './types';
 
 const UserContext = createContext<ContextProps>(undefined);
 

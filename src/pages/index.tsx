@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next';
 import { FC } from 'react';
 
-import { refreshAccessToken } from '@/api';
+import { check } from '@/api';
 import { User } from '@/api/auth/types';
 import { PageMeta } from '@/atoms';
 import { BaseProvider } from '@/components';
@@ -27,7 +27,7 @@ const Home: FC<Props> = ({ initialUser }) => (
 );
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  const { user } = await refreshAccessToken({ req, res });
+  const user = await check({ req, res });
 
   return { props: { initialUser: user || null } };
 };
