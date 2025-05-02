@@ -11,7 +11,7 @@ const HomePage = () => (
       <HeroSection />
     </div>
     <QualityBlock />
-    <InfoBlock btnHref="#" btnText="Get lorem started" title="lorem ipsi dolar sit amer" />
+    <InfoBlock btnHref="#" btnText="Learn more about us" title="Discover who we are and what we do" />
     {MOCK_TEXT_WITH_IMAGE.map(({ listData, linkData, text, title }, index) => (
       <TextWithImage
         key={title}

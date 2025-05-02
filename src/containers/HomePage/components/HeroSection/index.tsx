@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ChangeEvent, FormEvent, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import { Button, Input } from '@/atoms';
 import { ArrowIcon, HeroBGWaves, MouseIcon } from '@/icons';
@@ -9,6 +10,7 @@ const HeroSection = () => {
 
   const handleOnSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    toast.success('Short link generated successfully!');
   };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => setLongLink(event.target.value);

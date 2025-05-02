@@ -1,6 +1,12 @@
 import '@/styles/globals.css';
-import type { AppProps } from 'next/app';
+import { AppProps } from 'next/app';
+import { ToastContainer, Zoom } from 'react-toastify';
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
-}
+const App = ({ Component, pageProps }: AppProps) => (
+  <>
+    <ToastContainer theme="colored" closeOnClick transition={Zoom} stacked position="bottom-right" />
+    <Component {...pageProps} />
+  </>
+);
+
+export default App;
