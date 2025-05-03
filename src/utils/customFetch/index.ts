@@ -19,7 +19,7 @@ interface OptionProps {
   res?: ServerResponse;
 }
 
-const customFetch = async <T = unknown>(url: string, options: OptionProps = {}): Promise<T> => {
+const customFetch = async <T = unknown>(url: string, options: OptionProps = {}): Promise<T & { message?: string }> => {
   const { req, res, method = 'GET', headers, body, json } = options;
 
   const { accessToken, refreshToken } = getTokens(req);

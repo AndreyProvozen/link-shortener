@@ -1,16 +1,17 @@
 import { motion } from 'framer-motion';
 import { ChangeEvent, FormEvent, useState } from 'react';
-import { toast } from 'react-toastify';
 
 import { Button, Input } from '@/atoms';
 import { ArrowIcon, HeroBGWaves, MouseIcon } from '@/icons';
+import { useLinksList } from '@/providers';
 
 const HeroSection = () => {
   const [longLink, setLongLink] = useState('');
+  const { addNewLink } = useLinksList();
 
   const handleOnSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    toast.success('Short link generated successfully!');
+    await addNewLink(longLink, () => setLongLink(''));
   };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => setLongLink(event.target.value);
@@ -43,6 +44,7 @@ const HeroSection = () => {
             generate link
           </Button>
         </form>
+        <div></div>
       </div>
       <div className="absolute animate-bounce bottom-2 left-1/2 -translate-x-1/2 z-10 text-white-50">
         <MouseIcon width={36} height={36} />

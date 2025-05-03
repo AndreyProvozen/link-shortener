@@ -41,7 +41,6 @@ export const logout = async () => await customFetch('logout', { method: 'POST' }
 
 export const check = async ({ req, res }: ServerProps) => {
   const response = await customFetch<{ user: User }>('check', { method: 'GET', req, res });
-
   return response.user;
 };
 

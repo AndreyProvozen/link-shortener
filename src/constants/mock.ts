@@ -76,3 +76,6 @@ export const MOCK_QUESTIONS = [
       '<p>Because of its versatility, a QR Code can be programmed to do a multitude of things. It can be split into two formats: Dynamic and Static. A Dynamic QR Code is useful for businesses or nonprofits in their marketing strategy because of its advantages. Though it needs a subscription to work, it is a small price to pay compared to the benefits it offers. Dynamic QR Code solutions are editable, which means if you made a mistake and only noticed it after the QR Codes are printed, you can easily log in to the dashboard and fix them without changing the appearance of the already printed Codes.</p>',
   },
 ];
+
+export const LOGGED_INFO_BLOCK = { title: 'Need Help? We’re Here for You', btnHref: '/#', btnText: 'Contact Support' };
+export const GUEST_INFO_BLOCK = { title: 'Need Help? We’re Here for You', btnHref: '/#', btnText: 'Contact Support' };
