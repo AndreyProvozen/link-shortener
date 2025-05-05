@@ -7,6 +7,7 @@ export type ProviderProps = PropsWithChildren<{ initialLinksData: GetUserLinksRe
 export type ContextProps =
   | {
       linksList: GetUserLinksReturnProps['data'];
+      isLoading: boolean;
       totalCount: GetUserLinksReturnProps['totalCount'];
       addNewLink: (url: string, callback?: () => void) => Promise<void>;
       removeLink: (code: string) => Promise<void>;

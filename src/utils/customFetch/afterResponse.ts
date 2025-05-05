@@ -1,6 +1,6 @@
 import { ServerResponse } from 'http';
 
-import ky, { KyRequest, NormalizedOptions, KyResponse } from 'ky-universal';
+import ky, { NormalizedOptions, KyResponse } from 'ky-universal';
 
 import { refreshAccessToken } from '@/api';
 
@@ -11,7 +11,7 @@ interface ExtendedOptions extends NormalizedOptions {
 }
 
 const afterResponse = (refreshToken: string | null, res?: ServerResponse) => [
-  async (request: KyRequest, options: ExtendedOptions, response: KyResponse) => {
+  async (request: any, options: ExtendedOptions, response: KyResponse) => {
     const alreadyRetried = options._retry;
 
     if (response.status === 401 && refreshToken && !alreadyRetried) {

@@ -1,14 +1,16 @@
 import { motion } from 'framer-motion';
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FC, FormEvent, useState } from 'react';
 
 import { Button, Input } from '@/atoms';
 import { LinksListSkeleton } from '@/components';
 import { ArrowIcon, HeroBGWaves, MouseIcon } from '@/icons';
 import { useLinksList } from '@/providers';
 
-const HeroSection = () => {
+import LinksListItem from '../LinksListItem';
+
+const HeroSection: FC = () => {
   const [longLink, setLongLink] = useState('');
-  const { addNewLink } = useLinksList();
+  const { addNewLink, linksList, isLoading } = useLinksList();
 
   const handleOnSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -45,9 +47,20 @@ const HeroSection = () => {
             generate link
           </Button>
         </form>
-        <LinksListSkeleton isHomePageList={true} />
+        {isLoading ? (
+          <LinksListSkeleton isHomePageList={true} />
+        ) : (
+          linksList.map(linkData => (
+            <LinksListItem
+              {...linkData}
+              key={linkData.code}
+              isExternalShortLink
+              containerClasses="bg-white-50 rounded-md mb-5"
+            />
+          ))
+        )}
       </div>
-      <div className="absolute animate-bounce bottom-2 left-1/2 -translate-x-1/2 z-10 text-white-50">
+      <div className="absolute tablet-small:hidden animate-bounce bottom-2 left-1/2 -translate-x-1/2 z-10 text-white-50">
         <MouseIcon width={36} height={36} />
         <ArrowIcon width={24} height={24} className="mx-auto" />
       </div>

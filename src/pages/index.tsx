@@ -7,7 +7,7 @@ import { GetUserLinksReturnProps } from '@/api/link/types';
 import { PageMeta } from '@/atoms';
 import { META } from '@/constants';
 import HomePage from '@/containers/HomePage';
-import { StarIcon, ChevronIcon } from '@/icons';
+import { StarIcon, ChevronIcon, HeartIcon } from '@/icons';
 import { UserProvider, LinksListProvider } from '@/providers';
 
 interface Props {
@@ -17,7 +17,7 @@ interface Props {
 
 const Home: FC<Props> = ({ initialUser, initialHeroLinks }) => (
   <>
-    <PageMeta title={META.HOME.TITLE} description={META.HOME.DESCRIPTION} noIndex={false} />
+    <PageMeta title={META.HOME.TITLE} description={META.HOME.DESCRIPTION} />
     <UserProvider initialUser={initialUser}>
       <LinksListProvider initialLinksData={initialHeroLinks}>
         <HomePage />
@@ -26,6 +26,8 @@ const Home: FC<Props> = ({ initialUser, initialHeroLinks }) => (
     <div className="fixed opacity-0 pointer-events-none">
       <StarIcon id="star-icon" className="fill-orange-500" />
       <ChevronIcon id="chevron-icon" />
+      <HeartIcon id="heart-icon" className="fill-red-700 stroke-2 stroke-red-700" />
+      <HeartIcon id="heart-outline-icon" className="fill-none stroke-2 stroke-red-700" />
     </div>
   </>
 );
@@ -34,7 +36,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const user = await check({ req, res });
 
   if (user) {
-    const initialHeroLinks = await getUserLinks({ limit: 4, req, res });
+    const initialHeroLinks = await getUserLinks({ limit: 3, req, res });
 
     return { props: { initialUser: user, initialHeroLinks } };
   }

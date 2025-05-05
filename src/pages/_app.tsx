@@ -4,7 +4,7 @@ import { ToastContainer, Zoom } from 'react-toastify';
 
 const App = ({ Component, pageProps }: AppProps) => (
   <>
-    <ToastContainer theme="colored" closeOnClick transition={Zoom} stacked position="bottom-right" />
+    <ToastContainer limit={5} theme="colored" closeOnClick transition={Zoom} stacked position="bottom-right" />
     <Component {...pageProps} />
   </>
 );
