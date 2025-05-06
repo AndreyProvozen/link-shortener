@@ -2,9 +2,11 @@ import { FC } from 'react';
 
 import { LinkProps } from '@/api/link/types';
 import { Link } from '@/atoms';
+import { useIsMounted } from '@/hooks';
 import { getConfigVariable } from '@/utils';
 
 interface Props extends Pick<LinkProps, 'code' | 'url' | 'clicked'> {
+  toggleFavorite: () => void;
   containerClasses?: string;
   isExternalShortLink?: boolean;
   isFavorite?: boolean;
@@ -12,7 +14,17 @@ interface Props extends Pick<LinkProps, 'code' | 'url' | 'clicked'> {
 
 const API_URL = getConfigVariable('API_URL');
 
-const LinksListItem: FC<Props> = ({ containerClasses, isExternalShortLink, code, url, clicked, isFavorite }) => {
+const LinksListItem: FC<Props> = ({
+  toggleFavorite,
+  containerClasses,
+  isExternalShortLink,
+  code,
+  url,
+  clicked,
+  isFavorite,
+}) => {
+  const isMounted = useIsMounted();
+
   const shortLink = `${API_URL}/${code}`;
 
   return (
@@ -31,12 +43,12 @@ const LinksListItem: FC<Props> = ({ containerClasses, isExternalShortLink, code,
       <div className="flex items-center tablet-small:hidden">
         <div className="pr-10 pl-5 text-black-900">{clicked}</div>
         <svg
-          onClick={() => {}}
+          onClick={toggleFavorite}
           viewBox="0 0 24 24"
           width="24px"
           className="ml-auto cursor-pointer hover:scale-110 transition-all"
         >
-          <use href={isFavorite ? '#heart-icon' : '#heart-outline-icon'} />
+          <use href={isMounted && isFavorite ? '#heart-icon' : '#heart-outline-icon'} />
         </svg>
       </div>
       <div className="text-black-900">Settings</div>
