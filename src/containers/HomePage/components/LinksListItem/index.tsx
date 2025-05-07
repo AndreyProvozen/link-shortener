@@ -1,9 +1,12 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 
 import { LinkProps } from '@/api/link/types';
 import { Link } from '@/atoms';
+import { DeleteLinkModal } from '@/components';
 import { useIsMounted } from '@/hooks';
 import { getConfigVariable } from '@/utils';
+
+import SettingsDropDown from '../SettingsDropDown';
 
 interface Props extends Pick<LinkProps, 'code' | 'url' | 'clicked'> {
   toggleFavorite: () => void;
@@ -24,6 +27,8 @@ const LinksListItem: FC<Props> = ({
   isFavorite,
 }) => {
   const isMounted = useIsMounted();
+
+  const [deletedLinkCode, setDeletedLinkCode] = useState<string | false>(false);
 
   const shortLink = `${API_URL}/${code}`;
 
@@ -51,7 +56,10 @@ const LinksListItem: FC<Props> = ({
           <use href={isMounted && isFavorite ? '#heart-icon' : '#heart-outline-icon'} />
         </svg>
       </div>
-      <div className="text-black-900">Settings</div>
+      <SettingsDropDown code={code} onDelete={() => setDeletedLinkCode(code)} />
+      {!!deletedLinkCode && (
+        <DeleteLinkModal setDeletedLinkCode={setDeletedLinkCode} deletedLinkCode={deletedLinkCode} />
+      )}
     </div>
   );
 };

@@ -1,15 +1,15 @@
 import Cookies from 'js-cookie';
-import { useCallback, useEffect, useMemo, useState, createContext } from 'react';
+import { useCallback, useEffect, useMemo, useState, createContext, useContext } from 'react';
 import { toast } from 'react-toastify';
-
-import { ContextProps, ContextActionsProps } from './types';
-import { ProviderProps } from './types';
 
 import { createLink, deleteLink } from '@/api';
 import { FAVORITE_LIST_KEY } from '@/constants';
 
-export const LinksListContext = createContext<ContextProps | undefined>(undefined);
-export const LinksListActionsContext = createContext<ContextActionsProps | undefined>(undefined);
+import { ContextProps, ContextActionsProps } from './types';
+import { ProviderProps } from './types';
+
+const LinksListContext = createContext<ContextProps | undefined>(undefined);
+const LinksListActionsContext = createContext<ContextActionsProps | undefined>(undefined);
 
 const LinksListProvider = ({ children, initialLinksData }: ProviderProps) => {
   const [favoriteList, setFavoriteList] = useState<string[]>(JSON.parse(Cookies.get(FAVORITE_LIST_KEY) || '[]'));
@@ -36,12 +36,16 @@ const LinksListProvider = ({ children, initialLinksData }: ProviderProps) => {
   }, []);
 
   const removeLink = useCallback(async (code: string) => {
-    const linkData = await deleteLink(code);
+    const response = await deleteLink(code);
 
-    if (linkData) {
-      setLinksList(prev => prev.filter(link => link.code !== code));
-      setTotalCount(prev => prev - 1);
+    if (response?.message) {
+      toast.error(response.message);
+      return;
     }
+
+    setLinksList(prev => prev.filter(link => link.code !== code));
+    setTotalCount(prev => prev - 1);
+    toast.success('Link has been deleted');
   }, []);
 
   const toggleFavorite = useCallback((isFavoriteLink: boolean, code: string) => {
@@ -71,3 +75,19 @@ const LinksListProvider = ({ children, initialLinksData }: ProviderProps) => {
 };
 
 export default LinksListProvider;
+
+export const useLinksList = () => {
+  const context = useContext(LinksListContext);
+
+  if (!context) throw new Error('useLinksList must be used within a LinksListProvider');
+
+  return context;
+};
+
+export const useLinksListActions = () => {
+  const context = useContext(LinksListActionsContext);
+
+  if (!context) throw new Error('useLinksListActions must be used within a LinksListProvider');
+
+  return context;
+};
