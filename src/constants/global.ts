@@ -10,6 +10,8 @@ export enum SCREEN_SIZES {
 export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export const URL_REGEX = /^(ftp|http|https):\/\/[^ "]+$/;
 
+export const MOCK_API_URL = 'http://localhost:3000/api';
+
 export const ACCESS_TOKEN_KEY = 'LS_ACCESS_TOKEN';
 export const REFRESH_TOKEN_KEY = 'LS_REFRESH_TOKEN';
 

@@ -1,12 +1,12 @@
 import { FC, useState } from 'react';
 
+import { LINKS_LIST_ITEM_TEST_IDS } from './testIds';
+
 import { LinkProps } from '@/api/link/types';
 import { Link } from '@/atoms';
-import { DeleteLinkModal } from '@/components';
+import { DeleteLinkModal, SettingsDropDown } from '@/components';
 import { useIsMounted } from '@/hooks';
 import { getConfigVariable } from '@/utils';
-
-import SettingsDropDown from '../SettingsDropDown';
 
 interface Props extends Pick<LinkProps, 'code' | 'url' | 'clicked'> {
   toggleFavorite: () => void;
@@ -36,6 +36,7 @@ const LinksListItem: FC<Props> = ({
     <div className={`flex text-start items-center justify-between p-5 gap-2 ${containerClasses}`}>
       <div className="flex flex-col w-full max-w-md">
         <Link
+          data-testid={LINKS_LIST_ITEM_TEST_IDS.SHORT_LINK}
           target={isExternalShortLink ? '_blank' : '_self'}
           variant="secondary"
           href={`${isExternalShortLink ? shortLink : `/links/${code}`}`}
@@ -48,12 +49,16 @@ const LinksListItem: FC<Props> = ({
       <div className="flex items-center tablet-small:hidden">
         <div className="pr-10 pl-5 text-black-900">{clicked}</div>
         <svg
+          data-testid={LINKS_LIST_ITEM_TEST_IDS.FAVORITE}
           onClick={toggleFavorite}
           viewBox="0 0 24 24"
           width="24px"
           className="ml-auto cursor-pointer hover:scale-110 transition-all"
         >
-          <use href={isMounted && isFavorite ? '#heart-icon' : '#heart-outline-icon'} />
+          <use
+            data-testid={LINKS_LIST_ITEM_TEST_IDS.FAVORITE_USE}
+            href={isMounted && isFavorite ? '#heart-icon' : '#heart-outline-icon'}
+          />
         </svg>
       </div>
       <SettingsDropDown code={code} onDelete={() => setDeletedLinkCode(code)} />

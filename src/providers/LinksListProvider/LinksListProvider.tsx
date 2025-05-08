@@ -11,7 +11,7 @@ import { ProviderProps } from './types';
 const LinksListContext = createContext<ContextProps | undefined>(undefined);
 const LinksListActionsContext = createContext<ContextActionsProps | undefined>(undefined);
 
-const LinksListProvider = ({ children, initialLinksData }: ProviderProps) => {
+const LinksListProvider = ({ children, initialLinksData = { data: [], totalCount: 0 } }: ProviderProps) => {
   const [favoriteList, setFavoriteList] = useState<string[]>(JSON.parse(Cookies.get(FAVORITE_LIST_KEY) || '[]'));
   const [linksList, setLinksList] = useState(initialLinksData.data);
   const [totalCount, setTotalCount] = useState(initialLinksData.totalCount);

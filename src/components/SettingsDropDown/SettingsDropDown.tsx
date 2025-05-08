@@ -11,7 +11,7 @@ interface Props {
   onDelete: () => void;
 }
 
-const API_HOST = getConfigVariable('API_HOST');
+const API_URL = getConfigVariable('API_URL');
 
 const SettingsDropDown: FC<Props> = ({ code, onDelete }) => {
   const router = useRouter();
@@ -21,7 +21,7 @@ const SettingsDropDown: FC<Props> = ({ code, onDelete }) => {
       {
         fieldTitle: 'Copy',
         fieldFunction: () => {
-          navigator.clipboard.writeText(`${API_HOST}/${code}`);
+          navigator.clipboard.writeText(`${API_URL}/${code}`);
           toast.success('Link copied successfully');
         },
         fieldImage: <ClipBoardIcon />,

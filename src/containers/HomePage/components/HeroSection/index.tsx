@@ -5,7 +5,7 @@ import { LinksListSkeleton } from '@/components';
 import { ArrowIcon, HeroBGWaves, MouseIcon } from '@/icons';
 import { useLinksList, useLinksListActions } from '@/providers';
 
-import LinksListItem from '../LinksListItem';
+import LinksListItem from '../../../../components/LinksListItem';
 
 const HeroSection: FC = () => {
   const [longLink, setLongLink] = useState('');
