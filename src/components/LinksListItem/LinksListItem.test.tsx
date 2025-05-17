@@ -1,9 +1,9 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
+import { MOCK_API_URL } from '@/constants';
+
 import LinksListItem from './LinksListItem';
 import { LINKS_LIST_ITEM_TEST_IDS } from './testIds';
-
-import { MOCK_API_URL } from '@/constants';
 
 const MOCK_PROPS = {
   toggleFavorite: jest.fn(),

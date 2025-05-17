@@ -17,7 +17,7 @@ export const UserProvider = ({ children, initialUser }: ProviderProps) => {
 export const useUser = () => {
   const context = useContext(UserContext);
 
-  if (!context) throw new Error('useUser must be used within a UserProvider');
+  if (!context) return { user: null };
 
   return context;
 };

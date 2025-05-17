@@ -1,13 +1,15 @@
-import { useRouter } from 'next/router';
-import { FC, useState, useMemo } from 'react';
+import { FC, ReactNode, useState } from 'react';
 
 import { Drover } from '@/atoms';
 import { MenuIcon } from '@/icons';
 
+import useHeaderConfig from './useHeaderConfig';
+
 export interface MenuProps {
-  name: string;
+  name?: string;
   link?: string;
   handleFunction?: () => void;
+  component?: ReactNode;
   children?: MenuProps[];
 }
 
@@ -16,43 +18,19 @@ interface Props {
 }
 
 const MobileHeader: FC<Props> = ({ textBlack }) => {
-  const { push } = useRouter();
-  const session = false;
-
+  const { navFields } = useHeaderConfig(true);
   const [isOpenDrover, setIsOpenDrover] = useState(false);
 
   const handleToggle = () => setIsOpenDrover(prev => !prev);
 
-  const menuMobile: MenuProps[] = useMemo(
-    () => [
-      { name: 'Home', link: '/' },
-      {
-        name: 'Links',
-        link: '/links',
-      },
-      session
-        ? {
-            name: 'My profile',
-            children: [
-              {
-                name: 'Favorite links',
-                handleFunction: () => push(`${window.location.origin}/links?search=favorite`),
-              },
-              {
-                name: 'Sign out',
-                handleFunction: () => {},
-              },
-            ],
-          }
-        : { name: 'Sign in', link: '/auth' },
-    ],
-    [push, session]
-  );
-
   return (
     <div>
-      <MenuIcon onClick={handleToggle} cursor="pointer" className={`${textBlack ? 'fill-black' : 'fill-white'}`} />
-      <Drover isOpen={isOpenDrover} handleToggle={handleToggle} menu={menuMobile} />
+      <MenuIcon
+        onClick={handleToggle}
+        cursor="pointer"
+        className={`${textBlack ? 'fill-black-900' : 'fill-white-50'}`}
+      />
+      <Drover isOpen={isOpenDrover} handleToggle={handleToggle} menu={navFields} />
     </div>
   );
 };

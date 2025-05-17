@@ -3,9 +3,10 @@ import { render, screen } from '@testing-library/react';
 import { TEXT_WITH_IMAGE_TEST_IDS } from './testIds';
 import TextWithImage from './TextWithImage';
 
-const textWithImageProps = {
+const MOCK_PROPS = {
   linkData: { src: '/images/contentImage2.avif', alt: 'Link Performance image' },
   title: 'Link Performance',
+  containerClasses: 'test-container-class',
   featuresListData: [
     'View click-through rates and link performance metrics',
     'Monitor link performance over time',
@@ -15,27 +16,25 @@ const textWithImageProps = {
   text: '<p>test text content</p>',
 };
 
-const testClass = 'test-container-class';
-
-const setup = (props = {}) => render(<TextWithImage {...textWithImageProps} {...props} />);
+const setup = () => render(<TextWithImage {...MOCK_PROPS} />);
 
 describe('TextWithImage', () => {
   it('should render correctly', () => {
-    setup({ containerClasses: testClass });
+    setup();
 
-    const titleBlock = screen.getByText(textWithImageProps.title);
+    const titleBlock = screen.getByText(MOCK_PROPS.title);
     expect(titleBlock).toBeInTheDocument();
 
     const textBlock = screen.getByText('test text content');
     expect(textBlock).toBeInTheDocument();
 
-    const imageBlock = screen.getByAltText(textWithImageProps.linkData.alt);
+    const imageBlock = screen.getByAltText(MOCK_PROPS.linkData.alt);
     expect(imageBlock).toBeInTheDocument();
 
     const rootBlock = screen.getByTestId(TEXT_WITH_IMAGE_TEST_IDS.ROOT);
-    expect(rootBlock).toHaveClass(testClass);
+    expect(rootBlock).toHaveClass(MOCK_PROPS.containerClasses);
 
-    textWithImageProps.featuresListData.forEach(feature => {
+    MOCK_PROPS.featuresListData.forEach(feature => {
       const featureBlock = screen.getByText(feature);
       expect(featureBlock).toBeInTheDocument();
     });

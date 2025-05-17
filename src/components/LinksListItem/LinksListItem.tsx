@@ -1,12 +1,12 @@
 import { FC, useState } from 'react';
 
-import { LINKS_LIST_ITEM_TEST_IDS } from './testIds';
-
 import { LinkProps } from '@/api/link/types';
 import { Link } from '@/atoms';
 import { DeleteLinkModal, SettingsDropDown } from '@/components';
 import { useIsMounted } from '@/hooks';
 import { getConfigVariable } from '@/utils';
+
+import { LINKS_LIST_ITEM_TEST_IDS } from './testIds';
 
 interface Props extends Pick<LinkProps, 'code' | 'url' | 'clicked'> {
   toggleFavorite: () => void;

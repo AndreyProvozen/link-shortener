@@ -1,4 +1,6 @@
-import { FC, ReactElement, useEffect, useRef, useState } from 'react';
+import { FC, ReactElement, RefObject, useRef, useState } from 'react';
+
+import { useClickOutside } from '@/hooks';
 
 import DropdownPopUp, { DropdownDataProps } from './DropdownPopUp';
 import { DROPDOWN_TEST_IDS } from './testIds';
@@ -11,20 +13,9 @@ interface Props {
 
 const Dropdown: FC<Props> = ({ dropdownData = [], placeholder, listContainerClasses = 'right-0 w-72' }) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
+  useClickOutside(dropdownRef as RefObject<HTMLElement>, () => setIsOpen(false));
 
   const [isOpen, setIsOpen] = useState(false);
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-      setIsOpen(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('click', handleClickOutside);
-
-    return () => document.removeEventListener('click', handleClickOutside);
-  }, [dropdownRef]);
 
   const toggleDropdown = () => setIsOpen(prevState => !prevState);
 

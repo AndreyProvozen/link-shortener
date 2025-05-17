@@ -14,6 +14,7 @@ export { default as EnvelopeIcon } from './Envelope';
 export { default as TrashIcon } from './Trash';
 export { default as ClipBoardIcon } from './ClipBoard';
 export { default as ThreeDotsIcon } from './ThreeDots';
+export { default as UserIcon } from './User';
 export { default as HeroBGBlob } from './HeroBGBlob';
 export { default as HeroBGWave } from './HeroBGWave';
 export { default as HeroBGWaves } from './HeroBGWaves';

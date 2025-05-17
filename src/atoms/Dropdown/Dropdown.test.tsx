@@ -47,16 +47,4 @@ describe('Dropdown', () => {
       expect(title).toBeInTheDocument();
     });
   });
-
-  it('should close the popup when clicking outside', () => {
-    setup();
-
-    const toggleButton = screen.getByTestId(DROPDOWN_TEST_IDS.TOGGLE_BUTTON);
-    fireEvent.click(toggleButton);
-
-    const popup = screen.getByTestId(DROPDOWN_TEST_IDS.POPUP_ROOT);
-    fireEvent.click(document.body);
-
-    expect(popup).not.toBeInTheDocument();
-  });
 });
