@@ -1,7 +1,7 @@
 import { Dispatch, FC, SetStateAction } from 'react';
 
 import { ModalWrapper } from '@/atoms';
-import { useUser } from '@/providers';
+import { useHeaderData, useUser } from '@/providers';
 
 interface Props {
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
@@ -9,10 +9,12 @@ interface Props {
 
 const ConfirmSignOutModal: FC<Props> = ({ setIsModalOpen }) => {
   const { onLogout } = useUser();
+  const { setIsOpenDrover } = useHeaderData();
 
   const handleSubmit = () => {
     onLogout();
     setIsModalOpen(false);
+    setIsOpenDrover(false);
   };
 
   return (

@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 import { MenuProps } from '@/components';
 
@@ -28,6 +28,13 @@ const Drover: FC<Props> = ({ isOpen, handleToggle, menu }) => {
     setLevel(prevLevel => prevLevel - 1);
     setCurrentMenu(prevLevel => prevLevel.slice(0, level - 1));
   };
+
+  useEffect(() => {
+    if (!isOpen) {
+      setLevel(1);
+      setCurrentMenu([menu]);
+    }
+  }, [isOpen, menu]);
 
   return (
     <div className="relative text-white">

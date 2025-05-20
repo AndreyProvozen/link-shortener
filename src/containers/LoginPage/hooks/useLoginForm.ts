@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useState, FormEvent } from 'react';
 
 import { login } from '@/api';
@@ -10,6 +11,8 @@ interface ErrorsProps {
 }
 
 const useLoginForm = () => {
+  const router = useRouter();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -44,6 +47,8 @@ const useLoginForm = () => {
         setErrors(prev => ({ ...prev, general: message }));
         return;
       }
+
+      router.push('/');
     } finally {
       setIsLoading(false);
     }

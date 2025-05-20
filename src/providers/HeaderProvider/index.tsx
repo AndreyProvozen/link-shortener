@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { createContext, useContext, useMemo } from 'react';
+import { createContext, useContext, useMemo, useState } from 'react';
 
 import { Dropdown } from '@/atoms';
 import { MenuProps } from '@/components';
@@ -16,6 +16,8 @@ const HeaderDataContext = createContext<ContextProps>(undefined);
 export const HeaderDataProvider = ({ children }: ProviderProps) => {
   const router = useRouter();
   const { user, setIsSignOutModalOpen } = useUser();
+
+  const [isOpenDrover, setIsOpenDrover] = useState(false);
 
   const isMobile = useMediaQuery(SCREEN_SIZES.TABLET_BELOW);
 
@@ -82,7 +84,7 @@ export const HeaderDataProvider = ({ children }: ProviderProps) => {
     [user, authorizedFields]
   ) as MenuProps[];
 
-  const value = useMemo(() => ({ navFields }), [navFields]);
+  const value = useMemo(() => ({ isOpenDrover, setIsOpenDrover, navFields }), [isOpenDrover, navFields]);
 
   return <HeaderDataContext.Provider value={value}>{children}</HeaderDataContext.Provider>;
 };
