@@ -2,8 +2,7 @@ import { FC, ReactNode, useState } from 'react';
 
 import { Drover } from '@/atoms';
 import { MenuIcon } from '@/icons';
-
-import useHeaderConfig from './useHeaderConfig';
+import { useHeaderData } from '@/providers';
 
 export interface MenuProps {
   name?: string;
@@ -18,7 +17,7 @@ interface Props {
 }
 
 const MobileHeader: FC<Props> = ({ textBlack }) => {
-  const { navFields } = useHeaderConfig(true);
+  const { navFields } = useHeaderData();
   const [isOpenDrover, setIsOpenDrover] = useState(false);
 
   const handleToggle = () => setIsOpenDrover(prev => !prev);

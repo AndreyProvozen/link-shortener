@@ -1,17 +1,23 @@
 import { useRouter } from 'next/router';
-import { useMemo, useState } from 'react';
+import { createContext, useContext, useMemo } from 'react';
 
 import { Dropdown } from '@/atoms';
+import { MenuProps } from '@/components';
+import { SCREEN_SIZES } from '@/constants';
+import { useMediaQuery } from '@/hooks';
 import { HeartIcon, LogOutIcon, UserIcon } from '@/icons';
-import { useUser } from '@/providers';
 
-import { MenuProps } from './MobileHeader';
+import { useUser } from '../UserProvider';
 
-const useHeaderConfig = (isMobile: boolean) => {
-  const { user } = useUser();
+import { ContextProps, ProviderProps } from './types';
+
+const HeaderDataContext = createContext<ContextProps>(undefined);
+
+export const HeaderDataProvider = ({ children }: ProviderProps) => {
   const router = useRouter();
+  const { user, setIsSignOutModalOpen } = useUser();
 
-  const [isSignOutModalOpen, setIsSignOutModalOpen] = useState(false);
+  const isMobile = useMediaQuery(SCREEN_SIZES.TABLET_BELOW);
 
   const dropdownData = useMemo(
     () =>
@@ -64,7 +70,7 @@ const useHeaderConfig = (isMobile: boolean) => {
               <Dropdown dropdownData={dropdownData} placeholder={<p className="mx-3 text-2xl">My profile</p>} />
             ),
           },
-    [isMobile, dropdownData, router]
+    [isMobile, dropdownData, router, setIsSignOutModalOpen]
   );
 
   const navFields = useMemo(
@@ -76,9 +82,15 @@ const useHeaderConfig = (isMobile: boolean) => {
     [user, authorizedFields]
   ) as MenuProps[];
 
-  const value = useMemo(() => ({ isSignOutModalOpen, navFields }), [isSignOutModalOpen, navFields]);
+  const value = useMemo(() => ({ navFields }), [navFields]);
 
-  return value;
+  return <HeaderDataContext.Provider value={value}>{children}</HeaderDataContext.Provider>;
 };
 
-export default useHeaderConfig;
+export const useHeaderData = () => {
+  const context = useContext(HeaderDataContext);
+
+  if (!context) throw new Error('useHeaderData must be used within a HeaderDataProvider');
+
+  return context;
+};

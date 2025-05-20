@@ -1,15 +1,14 @@
 import { FC } from 'react';
 
 import { Link } from '@/atoms';
-
-import useHeaderConfig from './useHeaderConfig';
+import { useHeaderData } from '@/providers';
 
 interface Props {
   textBlack?: boolean;
 }
 
 const DesktopHeader: FC<Props> = () => {
-  const { navFields } = useHeaderConfig(false);
+  const { navFields } = useHeaderData();
 
   return (
     <nav className="flex">

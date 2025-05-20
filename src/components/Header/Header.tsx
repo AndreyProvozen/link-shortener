@@ -4,21 +4,27 @@ import { FC } from 'react';
 
 import { SCREEN_SIZES } from '@/constants';
 import { useMediaQuery } from '@/hooks';
+import { HeaderDataProvider, useUser } from '@/providers';
 
-const DesktopHeader = dynamic(() => import('./DesktopHeader'), { ssr: false });
-const MobileHeader = dynamic(() => import('./MobileHeader'), { ssr: false });
+import ConfirmSignOutModal from '../ConfirmSignOutModal';
+
+const DesktopHeader = dynamic(() => import('./components/DesktopHeader'), { ssr: false });
+const MobileHeader = dynamic(() => import('./components/MobileHeader'), { ssr: false });
 
 interface Props {
   textBlack?: boolean;
   containerClasses?: string;
 }
 
-const Header: FC<Props> = ({ textBlack, containerClasses = '' }) => {
+const HeaderContent: FC<Props> = ({ textBlack, containerClasses = '' }) => {
   const isMobile = useMediaQuery(SCREEN_SIZES.TABLET_BELOW);
+  const { isSignOutModalOpen, setIsSignOutModalOpen } = useUser();
 
   return (
     <header
-      className={`${textBlack ? 'text-black-900 border-b-2 border-gray-100' : 'text-white-50'} ${containerClasses} z-40 p-5`}
+      className={`${
+        textBlack ? 'text-black-900 border-b-2 border-gray-100' : 'text-white-50'
+      } ${containerClasses} z-40 p-5`}
     >
       <div className="container max-w-screen-container mx-auto flex justify-between items-center text-xl">
         <Link
@@ -30,8 +36,15 @@ const Header: FC<Props> = ({ textBlack, containerClasses = '' }) => {
         </Link>
         {isMobile ? <MobileHeader textBlack={textBlack} /> : <DesktopHeader textBlack={textBlack} />}
       </div>
+      {isSignOutModalOpen && <ConfirmSignOutModal setIsModalOpen={setIsSignOutModalOpen} />}
     </header>
   );
 };
+
+const Header: FC<Props> = props => (
+  <HeaderDataProvider>
+    <HeaderContent {...props} />
+  </HeaderDataProvider>
+);
 
 export default Header;

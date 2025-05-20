@@ -28,7 +28,7 @@ const DeleteLinkModal: FC<Props> = ({ deletedLinkCode, setDeletedLinkCode, isSta
   };
 
   return (
-    <ModalWrapper contentClasses="p-0" setIsModalOpen={setDeletedLinkCode as Dispatch<SetStateAction<boolean>>}>
+    <ModalWrapper contentClasses="!p-0" setIsModalOpen={setDeletedLinkCode as Dispatch<SetStateAction<boolean>>}>
       <div className="border-b-2 border-b-white-300 py-2 flex justify-center text-xl font-semibold">Delete link</div>
       <div className="py-4 px-8">
         <p>Are you really want to delete this link?</p>
