@@ -18,3 +18,4 @@ export { default as UserIcon } from './User';
 export { default as HeroBGBlob } from './HeroBGBlob';
 export { default as HeroBGWave } from './HeroBGWave';
 export { default as HeroBGWaves } from './HeroBGWaves';
+export { default as HeroBGCircleScatter } from './HeroBGCircleScatter';

@@ -20,4 +20,8 @@ export const META = {
     DESCRIPTION:
       'Create short, custom links with ease using our Link Shortener. Boost your online presence and track link clicks with our advanced analytics. Try it now for free!',
   },
+  LIST: {
+    TITLE: 'Links List Page',
+    DESCRIPTION: 'Explore and manage your shortened links with our Link Shortener project.',
+  },
 };
