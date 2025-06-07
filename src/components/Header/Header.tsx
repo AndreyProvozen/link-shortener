@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { FC } from 'react';
@@ -22,9 +23,11 @@ const HeaderContent: FC<Props> = ({ textBlack, containerClasses = '' }) => {
 
   return (
     <header
-      className={`${
-        textBlack ? 'text-black-900 border-b-2 border-gray-100' : 'text-white-50'
-      } z-40 p-5 ${containerClasses}`}
+      className={clsx(
+        'z-40 p-5',
+        textBlack ? 'text-black-900 border-b-2 border-gray-100' : 'text-white-50',
+        containerClasses
+      )}
     >
       <div className="container max-w-screen-container mx-auto flex justify-between items-center text-xl">
         <Link

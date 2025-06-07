@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { FC, useState } from 'react';
 
 import { LinkProps } from '@/api/link/types';
@@ -33,7 +34,7 @@ const LinksListItem: FC<Props> = ({
   const shortLink = `${API_URL}/${code}`;
 
   return (
-    <div className={`flex text-start items-center justify-between p-5 gap-2 ${containerClasses}`}>
+    <div className={clsx('flex text-start items-center justify-between p-5 gap-2', containerClasses)}>
       <div className="flex flex-col w-full max-w-md">
         <Link
           data-testid={LINKS_LIST_ITEM_TEST_IDS.SHORT_LINK}

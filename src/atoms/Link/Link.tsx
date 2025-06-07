@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import NextLink, { LinkProps } from 'next/link';
 import { AnchorHTMLAttributes, FC } from 'react';
 
@@ -14,7 +15,7 @@ interface Props extends NextLinkProps {
 }
 
 const Link: FC<Props> = ({ variant = 'primary', children, className, ...props }) => (
-  <NextLink className={`inline-block transition ${linkVariants[variant]} ${className}`} {...props}>
+  <NextLink className={clsx('inline-block transition', linkVariants[variant], className)} {...props}>
     {children}
   </NextLink>
 );

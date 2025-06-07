@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import Link from 'next/link';
 import { FC } from 'react';
 
@@ -14,7 +15,7 @@ export const SOCIAL_LINKS_DATA = [
 ];
 
 const Footer: FC<Props> = ({ containerClasses = '' }) => (
-  <div className={`bg-black-900 text-white-50 ${containerClasses}`}>
+  <div className={clsx('bg-black-900 text-white-50', containerClasses)}>
     <div className="container mobile:flex-col-reverse max-w-screen-container flex justify-between p-5 items-center mx-auto">
       <p className="text-3xl font-extrabold">Link Shortener</p>
       <div className="flex gap-3">

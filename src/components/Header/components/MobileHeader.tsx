@@ -23,11 +23,7 @@ const MobileHeader: FC<Props> = ({ textBlack }) => {
 
   return (
     <div>
-      <MenuIcon
-        onClick={handleToggle}
-        cursor="pointer"
-        className={`${textBlack ? 'fill-black-900' : 'fill-white-50'}`}
-      />
+      <MenuIcon onClick={handleToggle} cursor="pointer" className={textBlack ? 'fill-black-900' : 'fill-white-50'} />
       <Drover isOpen={isOpenDrover} handleToggle={handleToggle} menu={navFields} />
     </div>
   );

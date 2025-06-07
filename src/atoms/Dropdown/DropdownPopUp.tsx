@@ -25,7 +25,7 @@ const DropdownPopUp: FC<Props> = ({ dropdownData, listContainerClasses, setIsOpe
   return (
     <div
       data-testid={DROPDOWN_TEST_IDS.POPUP_ROOT}
-      className={`${listContainerClasses} absolute rounded-lg bg-black-500 px-4 pt-4 mt-4 z-10`}
+      className={clsx('absolute rounded-lg bg-black-500 px-4 pt-4 mt-4 z-10', listContainerClasses)}
     >
       {dropdownData.map(({ fieldTitle, fieldFunction, fieldImage, customField }, i) => (
         <div data-testid={DROPDOWN_TEST_IDS.POPUP_ITEM} key={`${fieldTitle}${i}`}>

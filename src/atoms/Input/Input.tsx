@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { InputHTMLAttributes, FC } from 'react';
 
 import ErrorMessage from '../ErrorMessage';
@@ -10,12 +11,13 @@ const inputVariants = {
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   variant?: keyof typeof inputVariants;
+  wrapperClassName?: string;
   error?: string;
 }
 
-const Input: FC<Props> = ({ variant = 'primary', error, className, ...props }) => (
-  <div className="w-full">
-    <input className={`${inputVariants.base} ${inputVariants[error ? 'error' : variant]} ${className}`} {...props} />
+const Input: FC<Props> = ({ variant = 'primary', error, wrapperClassName, className, ...props }) => (
+  <div className={clsx('w-full', wrapperClassName)}>
+    <input className={clsx(inputVariants.base, inputVariants[error ? 'error' : variant], className)} {...props} />
     {error && <ErrorMessage className="mt-1">{error}</ErrorMessage>}
   </div>
 );

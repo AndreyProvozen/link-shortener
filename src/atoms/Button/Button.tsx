@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { ButtonHTMLAttributes, FC } from 'react';
 
 const buttonVariants = {
@@ -16,7 +17,7 @@ interface Props extends ButtonProps {
 }
 
 const Button: FC<Props> = ({ children, variant = 'primary', className = '', ...props }) => (
-  <button className={`${buttonVariants.base} ${buttonVariants[variant]} ${className}`} {...props}>
+  <button className={clsx(buttonVariants.base, buttonVariants[variant], className)} {...props}>
     {children}
   </button>
 );

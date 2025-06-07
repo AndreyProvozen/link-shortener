@@ -1,4 +1,5 @@
-import type { FC } from 'react';
+import clsx from 'clsx';
+import { FC } from 'react';
 
 interface Props {
   isHomePageList?: boolean;
@@ -11,7 +12,7 @@ const TableLink: FC<TabLinkProps> = ({ isHomePageList }) => {
   const linkContainerClasses = isHomePageList ? 'bg-white-50 rounded-md mb-5' : 'border-b border-white-300';
 
   return (
-    <div className={`w-full p-5 flex justify-between items-center ${linkContainerClasses}`}>
+    <div className={clsx('w-full p-5 flex justify-between items-center', linkContainerClasses)}>
       <div className="max-w-xs w-full">
         <div className="max-w-[288px] h-6 animate-pulse bg-pink-300 rounded-md mb-1" />
         <div className="max-w-[176px] h-5 mr-5 animate-pulse bg-white-300 rounded-md" />
