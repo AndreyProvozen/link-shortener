@@ -7,7 +7,7 @@ interface Props {
   statusCode: number;
 }
 
-const Error: FC<Props> = ({ statusCode }) => (
+const ErrorPage: FC<Props> = ({ statusCode }) => (
   <FullScreenWrapper patternColor="#ff1a1a" backgroundVariant={BACKGROUND_VARIANTS.BLOB}>
     <p className="text-[160px] mobile:text-[112px] leading-none font-bold">{statusCode}</p>
     <p className="text-2xl font-bold mobile:text-lg mobile:leading-none">OPPS! PAGE NOT FOUND</p>
@@ -20,4 +20,4 @@ const Error: FC<Props> = ({ statusCode }) => (
   </FullScreenWrapper>
 );
 
-export default Error;
+export default ErrorPage;

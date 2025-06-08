@@ -16,3 +16,4 @@ export const ACCESS_TOKEN_KEY = 'LS_ACCESS_TOKEN';
 export const REFRESH_TOKEN_KEY = 'LS_REFRESH_TOKEN';
 
 export const FAVORITE_LIST_KEY = 'FAVORITE_LIST';
+export const LINKS_LIST_PER_PAGE = 10;

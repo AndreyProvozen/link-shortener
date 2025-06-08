@@ -1,13 +1,16 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 
-import { Header } from '@/components';
+import { Header, LinksListSkeleton, NotFoundSection, PaginationSkeleton } from '@/components';
 import { HeroBGCircleScatter } from '@/icons';
+
+import { SearchSection } from './components';
 // import LinksListSkeleton from '@/components/Skeleton/LinksListSkeleton';
 // import PaginationSkeleton from '@/components/Skeleton/PaginationSkeleton';
 // import { useGetLinksQuery } from '@/store/api/links.api';
 // import { useFetchLinksBySearchStringQuery } from '@/store/api/search.api';
 
 const LinksList: FC = () => {
+  const [isLoading, setIsLoading] = useState(false);
   // const { query } = useRouter();
 
   // const [perPage] = useState(9);
@@ -44,30 +47,33 @@ const LinksList: FC = () => {
           </p>
         </div>
       </div>
-      {/* <div className="max-w-screen-desktop mx-auto w-full px-5 my-10">
-        <FiltersBlock />
-        {isLoading ? (
-          <>
-            <LinksListSkeleton quantity={5} />
-            <PaginationSkeleton />
-          </>
-        ) : data.count === 0 ? (
-          <NotFoundSection
-            title="You currently do not have any links in your collection."
-            href="/"
-            linkClassName="text-2xl text-white rounded-md hover:bg-lightPink bg-pink px-6 py-2.5 active:bg-darkPink"
-            linkText="Create new link"
-          />
-        ) : (
-          <LinkDataBlock
-            linksList={data.linksList}
-            count={data.count}
-            perPage={perPage}
-            linkContainerClasses="border-b border-gray"
-            showFiltersAndPagination={true}
-          />
-        )}
-      </div> */}
+      <div className="max-w-screen-desktop mx-auto w-full px-5 my-10">
+        <SearchSection />
+        {
+          isLoading ? (
+            <>
+              <LinksListSkeleton quantity={5} />
+              <PaginationSkeleton />
+            </>
+          ) : (
+            //  data.count === 0 ? (
+            <NotFoundSection
+              title="You currently do not have any links in your collection."
+              href="/"
+              linkClassName="text-2xl text-white rounded-md hover:bg-lightPink bg-pink px-6 py-2.5 active:bg-darkPink"
+              linkText="Create new link"
+            />
+          )
+          // ) : (
+          //   <LinkDataBlock
+          //     linksList={data.linksList}
+          //     count={data.count}
+          //     perPage={perPage}
+          //     linkContainerClasses="border-b border-gray"
+          //     showFiltersAndPagination={true}
+          //   />
+        }
+      </div>
     </>
   );
 };

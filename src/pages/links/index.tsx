@@ -1,14 +1,28 @@
+import { GetServerSideProps } from 'next';
 import { FC } from 'react';
 
-import PageMeta from '@/atoms/PageMeta';
-import { META } from '@/constants';
-import LinksList from '@/containers/LinksListPage';
+import { check, getUserLinks } from '@/api';
+import { User } from '@/api/auth/types';
+import { GetUserLinksReturnProps } from '@/api/link/types';
+import { PageMeta } from '@/atoms';
+import { LINKS_LIST_PER_PAGE, META } from '@/constants';
+import LinksListPage from '@/containers/LinksListPage';
 import { HeartIcon, ThreeDotsIcon } from '@/icons';
+import { LinksListProvider, UserProvider } from '@/providers';
 
-const LinksListPage: FC = () => (
+interface Props {
+  initialUser: User | null;
+  initialLinksData: GetUserLinksReturnProps;
+}
+
+const LinksList: FC<Props> = ({ initialUser, initialLinksData }) => (
   <>
     <PageMeta title={META.LIST.TITLE} description={META.LIST.DESCRIPTION} noIndex />
-    <LinksList />
+    <UserProvider initialUser={initialUser}>
+      <LinksListProvider initialLinksData={initialLinksData}>
+        <LinksListPage />
+      </LinksListProvider>
+    </UserProvider>
     <div className="fixed opacity-0 pointer-events-none">
       <ThreeDotsIcon id="three-dots-icon" className="fill-pink-700 hover:fill-pink-500" />
       <HeartIcon id="heart-icon" className="fill-red-700 stroke-2 stroke-red-700" />
@@ -17,4 +31,16 @@ const LinksListPage: FC = () => (
   </>
 );
 
-export default LinksListPage;
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+  const user = await check({ req, res });
+
+  if (user) {
+    const initialLinksData = await getUserLinks({ limit: LINKS_LIST_PER_PAGE, req, res });
+
+    return { props: { initialUser: user, initialLinksData } };
+  }
+
+  return { props: {} };
+};
+
+export default LinksList;
