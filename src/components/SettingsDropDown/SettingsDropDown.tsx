@@ -40,7 +40,7 @@ const SettingsDropDown: FC<Props> = ({ code, onDelete }) => {
     <Dropdown
       placeholder={
         <svg
-          className="ml-5 hover:scale-110 transition-all"
+          className="hover:scale-110 transition-all"
           viewBox="0 0 30 30"
           width="30px"
           aria-label="Open link settings"

@@ -5,6 +5,7 @@ import { LinkProps } from '@/api/link/types';
 import { Link } from '@/atoms';
 import { DeleteLinkModal, SettingsDropDown } from '@/components';
 import { useIsMounted } from '@/hooks';
+import { EyeIcon } from '@/icons';
 import { getConfigVariable } from '@/utils';
 
 import { LINKS_LIST_ITEM_TEST_IDS } from './testIds';
@@ -47,22 +48,24 @@ const LinksListItem: FC<Props> = ({
         </Link>
         <p className="max-w-sm text-white-500 line-clamp-1 break-all text-sm">{url}</p>
       </div>
-      <div className="flex items-center tablet-small:hidden">
-        <div className="pr-10 pl-5 text-black-900">{clicked}</div>
+      <div className="text-black-900 flex items-center gap-2 tablet-small:hidden">
+        {clicked} <EyeIcon />
+      </div>
+      <div className="flex gap-2">
         <svg
           data-testid={LINKS_LIST_ITEM_TEST_IDS.FAVORITE}
           onClick={toggleFavorite}
           viewBox="0 0 24 24"
           width="24px"
-          className="ml-auto cursor-pointer hover:scale-110 transition-all"
+          className="ml-auto cursor-pointer hover:scale-110 transition-all tablet-small:hidden"
         >
           <use
             data-testid={LINKS_LIST_ITEM_TEST_IDS.FAVORITE_USE}
             href={isMounted && isFavorite ? '#heart-icon' : '#heart-outline-icon'}
           />
         </svg>
+        <SettingsDropDown code={code} onDelete={() => setDeletedLinkCode(code)} />
       </div>
-      <SettingsDropDown code={code} onDelete={() => setDeletedLinkCode(code)} />
       {!!deletedLinkCode && (
         <DeleteLinkModal setDeletedLinkCode={setDeletedLinkCode} deletedLinkCode={deletedLinkCode} />
       )}

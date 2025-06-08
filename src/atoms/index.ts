@@ -8,3 +8,4 @@ export { default as Divider } from './Divider';
 export { default as Accordion } from './Accordion';
 export { default as ModalWrapper } from './ModalWrapper';
 export { default as ErrorMessage } from './ErrorMessage';
+export { default as Pagination } from './Pagination';
