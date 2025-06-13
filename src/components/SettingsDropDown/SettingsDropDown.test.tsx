@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { NextRouter, useRouter } from 'next/router';
+import { useRouter, type NextRouter } from 'next/router';
 import { toast } from 'react-toastify';
 
 import { MOCK_API_URL } from '@/constants';

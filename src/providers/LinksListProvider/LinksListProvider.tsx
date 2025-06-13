@@ -5,8 +5,7 @@ import { toast } from 'react-toastify';
 import { createLink, deleteLink } from '@/api';
 import { FAVORITE_LIST_KEY } from '@/constants';
 
-import { ContextProps, ContextActionsProps } from './types';
-import { ProviderProps } from './types';
+import type { ContextProps, ContextActionsProps, ProviderProps } from './types';
 
 const LinksListContext = createContext<ContextProps | undefined>(undefined);
 const LinksListActionsContext = createContext<ContextActionsProps | undefined>(undefined);

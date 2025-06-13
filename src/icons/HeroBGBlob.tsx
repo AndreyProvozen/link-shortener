@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FC, SVGProps } from 'react';
+import type { FC, SVGProps } from 'react';
 
 interface Props extends SVGProps<SVGSVGElement> {
   blobsColor?: string;

@@ -1,6 +1,6 @@
 import { customFetch, setTokens } from '@/utils';
 
-import {
+import type {
   CredentialsProps,
   LoginResponseProps,
   MessageProps,

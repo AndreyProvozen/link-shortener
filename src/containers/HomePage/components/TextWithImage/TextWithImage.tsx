@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { FC } from 'react';
+import type { FC } from 'react';
 
 import { TEXT_WITH_IMAGE_TEST_IDS } from './testIds';
 

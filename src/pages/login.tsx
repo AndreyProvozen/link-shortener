@@ -1,5 +1,5 @@
-import { GetServerSideProps } from 'next';
-import { FC } from 'react';
+import type { GetServerSideProps } from 'next';
+import type { FC } from 'react';
 
 import { check } from '@/api';
 import { PageMeta } from '@/atoms';

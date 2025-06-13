@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Dispatch, FC, ReactNode, RefObject, SetStateAction, useEffect, useRef, useState } from 'react';
+import type { Dispatch, FC, ReactNode, RefObject, SetStateAction } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import useClickOutside from '@/hooks/useClickOutside';
 import { CloseIcon } from '@/icons';

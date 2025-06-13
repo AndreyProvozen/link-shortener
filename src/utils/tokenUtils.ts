@@ -1,4 +1,4 @@
-import { IncomingMessage, ServerResponse } from 'http';
+import type { IncomingMessage, ServerResponse } from 'http';
 
 import { serialize, parse } from 'cookie';
 import Cookies from 'js-cookie';

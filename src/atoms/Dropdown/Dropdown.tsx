@@ -1,8 +1,8 @@
-import { FC, ReactElement, RefObject, useRef, useState } from 'react';
+import { useRef, useState, type FC, type ReactElement, type RefObject } from 'react';
 
 import { useClickOutside } from '@/hooks';
 
-import DropdownPopUp, { DropdownDataProps } from './DropdownPopUp';
+import DropdownPopUp, { type DropdownDataProps } from './DropdownPopUp';
 import { DROPDOWN_TEST_IDS } from './testIds';
 
 interface Props {

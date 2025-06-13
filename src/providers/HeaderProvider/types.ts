@@ -1,6 +1,6 @@
-import { Dispatch, ReactNode, SetStateAction } from 'react';
+import type { Dispatch, ReactNode, SetStateAction } from 'react';
 
-import { MenuProps } from '@/components';
+import type { MenuProps } from '@/components';
 
 export type ContextProps =
   | {

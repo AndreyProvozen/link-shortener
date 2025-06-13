@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
-import { FC, PropsWithChildren, memo } from 'react';
+import { memo, type FC, type PropsWithChildren } from 'react';
 
 import { Header } from '@/components';
 

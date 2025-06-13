@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import { FC, useState } from 'react';
+import { useState, type FC } from 'react';
 
-import { LinkProps } from '@/api/link/types';
+import type { LinkProps } from '@/api/link/types';
 import { Link } from '@/atoms';
 import { DeleteLinkModal, SettingsDropDown } from '@/components';
 import { useIsMounted } from '@/hooks';

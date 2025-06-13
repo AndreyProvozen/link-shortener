@@ -2,14 +2,14 @@ import { useRouter } from 'next/router';
 import { createContext, useContext, useMemo, useState } from 'react';
 
 import { Dropdown } from '@/atoms';
-import { MenuProps } from '@/components';
+import type { MenuProps } from '@/components';
 import { SCREEN_SIZES } from '@/constants';
 import { useMediaQuery } from '@/hooks';
 import { HeartIcon, LogOutIcon, UserIcon } from '@/icons';
 
 import { useUser } from '../UserProvider';
 
-import { ContextProps, ProviderProps } from './types';
+import type { ContextProps, ProviderProps } from './types';
 
 const HeaderDataContext = createContext<ContextProps>(undefined);
 

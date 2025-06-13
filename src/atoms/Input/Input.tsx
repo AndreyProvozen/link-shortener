@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { InputHTMLAttributes, FC } from 'react';
+import type { InputHTMLAttributes, FC } from 'react';
 
 import ErrorMessage from '../ErrorMessage';
 

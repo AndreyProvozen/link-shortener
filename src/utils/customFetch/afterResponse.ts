@@ -1,6 +1,6 @@
-import { ServerResponse } from 'http';
+import type { ServerResponse } from 'http';
 
-import ky, { NormalizedOptions, KyResponse } from 'ky-universal';
+import ky, { type NormalizedOptions, type KyResponse } from 'ky-universal';
 
 import { refreshAccessToken } from '@/api';
 

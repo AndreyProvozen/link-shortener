@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FC } from 'react';
+import type { FC } from 'react';
 
 interface Props {
   title: string;

@@ -1,5 +1,5 @@
 import '@/styles/globals.css';
-import { AppProps } from 'next/app';
+import type { AppProps } from 'next/app';
 import { ToastContainer, Zoom } from 'react-toastify';
 
 const App = ({ Component, pageProps }: AppProps) => (

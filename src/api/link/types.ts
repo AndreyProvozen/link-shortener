@@ -1,4 +1,4 @@
-import { ServerProps } from '../auth/types';
+import type { ServerProps } from '../auth/types';
 
 type PaginationProps = { limit?: number; offset?: number };
 

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { FC } from 'react';
+import type { FC } from 'react';
 
 import { SCREEN_SIZES } from '@/constants';
 import { useMediaQuery } from '@/hooks';

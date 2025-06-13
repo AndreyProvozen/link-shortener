@@ -8,6 +8,7 @@
     "build": "PORT=3002 next build",
     "start": "next start",
     "lint": "next lint",
+    "fix:lint": "next lint --fix",
     "analyze": "ANALYZE=true yarn build"
   },
   "dependencies": {

@@ -19,6 +19,7 @@ const eslintConfig = [
     },
     rules: {
       'prettier/prettier': 'error',
+      '@typescript-eslint/consistent-type-imports': 'error',
       'no-console': 'error',
       'no-debugger': 'error',
       'prefer-const': 'error',

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FC, SVGProps } from 'react';
+import type { FC, SVGProps } from 'react';
 
 const HeroBGWaves: FC<SVGProps<SVGSVGElement>> = props => (
   <svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" {...props}>

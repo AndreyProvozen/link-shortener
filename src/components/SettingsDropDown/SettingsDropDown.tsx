@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { FC, useMemo } from 'react';
+import { useMemo, type FC } from 'react';
 import { toast } from 'react-toastify';
 
 import { Dropdown } from '@/atoms';

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import NextLink, { LinkProps } from 'next/link';
-import { AnchorHTMLAttributes, FC } from 'react';
+import NextLink, { type LinkProps } from 'next/link';
+import type { AnchorHTMLAttributes, FC } from 'react';
 
 const linkVariants = {
   primary: 'text-white-50 hover:text-pink-500',

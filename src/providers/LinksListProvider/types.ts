@@ -1,6 +1,6 @@
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 
-import { GetUserLinksReturnProps } from '@/api/link/types';
+import type { GetUserLinksReturnProps } from '@/api/link/types';
 
 export type ProviderProps = PropsWithChildren<{ initialLinksData: GetUserLinksReturnProps }>;
 

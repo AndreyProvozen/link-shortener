@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { useState, type ChangeEvent, type FormEvent } from 'react';
 
 import { Button, Input } from '@/atoms';
 import { LinksListSkeleton } from '@/components';

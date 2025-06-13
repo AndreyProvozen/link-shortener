@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { FC } from 'react';
+import type { FC } from 'react';
 
 import { Button, Divider, ErrorMessage, Input, Link } from '@/atoms';
 import { FullScreenWrapper } from '@/components';

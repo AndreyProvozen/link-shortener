@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 
 import { Pagination } from '@/atoms';
 import { Header, LinksListItem, LinksListSkeleton, PaginationSkeleton } from '@/components';

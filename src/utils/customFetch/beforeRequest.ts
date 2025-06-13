@@ -1,4 +1,4 @@
-import { KyRequest } from 'ky-universal';
+import type { KyRequest } from 'ky-universal';
 
 const beforeRequest = (accessToken: string | null, headers: Record<string, any> = {}) => [
   (request: KyRequest) => {

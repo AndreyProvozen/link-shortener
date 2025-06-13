@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { Dispatch, FC, ReactElement, SetStateAction } from 'react';
+import type { Dispatch, FC, ReactElement, SetStateAction } from 'react';
 
 import { DROPDOWN_TEST_IDS } from './testIds';
 

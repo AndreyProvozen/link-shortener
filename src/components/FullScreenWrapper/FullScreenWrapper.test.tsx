@@ -1,5 +1,5 @@
 import { act, render, screen } from '@testing-library/react';
-import { useRouter, NextRouter } from 'next/router';
+import { useRouter, type NextRouter } from 'next/router';
 
 import { BACKGROUND_VARIANTS, FullScreenWrapper } from '..';
 

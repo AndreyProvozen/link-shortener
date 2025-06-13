@@ -1,9 +1,9 @@
-import { GetServerSideProps } from 'next';
-import { FC } from 'react';
+import type { GetServerSideProps } from 'next';
+import type { FC } from 'react';
 
 import { check, getUserLinks } from '@/api';
-import { User } from '@/api/auth/types';
-import { GetUserLinksReturnProps } from '@/api/link/types';
+import type { User } from '@/api/auth/types';
+import type { GetUserLinksReturnProps } from '@/api/link/types';
 import { PageMeta } from '@/atoms';
 import { LINKS_LIST_PER_PAGE, META } from '@/constants';
 import LinksListPage from '@/containers/LinksListPage';

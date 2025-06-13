@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { FC } from 'react';
+import type { FC } from 'react';
 
-import { MenuProps } from '@/components';
+import type { MenuProps } from '@/components';
 import { ChevronIcon } from '@/icons';
 
 interface Props {

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 
 import { PageMeta } from '@/atoms';
 import { META } from '@/constants';

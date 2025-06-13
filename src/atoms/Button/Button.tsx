@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ButtonHTMLAttributes, FC } from 'react';
+import type { ButtonHTMLAttributes, FC } from 'react';
 
 const buttonVariants = {
   base: 'transition text-xl font-medium px-4 py-2 disabled:bg-white-300 disabled:text-white-500',
