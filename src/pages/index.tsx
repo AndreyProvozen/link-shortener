@@ -7,7 +7,7 @@ import type { GetUserLinksReturnProps } from '@/api/link/types';
 import { PageMeta } from '@/atoms';
 import { META } from '@/constants';
 import HomePage from '@/containers/HomePage';
-import { StarIcon, ThreeDotsIcon, ChevronIcon, HeartIcon } from '@/icons';
+import { Star, ThreeDots, Chevron, Heart } from '@/icons';
 import { UserProvider, LinksListProvider } from '@/providers';
 
 interface Props {
@@ -24,11 +24,11 @@ const Home: FC<Props> = ({ initialUser, initialHeroLinks }) => (
       </LinksListProvider>
     </UserProvider>
     <div className="fixed opacity-0 pointer-events-none">
-      <StarIcon id="star-icon" className="fill-orange-500" />
-      <ChevronIcon id="chevron-icon" />
-      <HeartIcon id="heart-icon" className="fill-red-700 stroke-2 stroke-red-700" />
-      <ThreeDotsIcon id="three-dots-icon" className="fill-pink-700" />
-      <HeartIcon id="heart-outline-icon" className="fill-none stroke-2 stroke-red-700" />
+      <Star id="star-icon" className="fill-orange-500" />
+      <Chevron id="chevron-icon" />
+      <Heart id="heart-icon" className="fill-red-700 stroke-2 stroke-red-700" />
+      <ThreeDots id="three-dots-icon" className="fill-pink-700" />
+      <Heart id="heart-outline-icon" className="fill-none stroke-2 stroke-red-700" />
     </div>
   </>
 );

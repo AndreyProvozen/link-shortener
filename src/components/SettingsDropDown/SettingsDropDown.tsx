@@ -3,7 +3,7 @@ import { useMemo, type FC } from 'react';
 import { toast } from 'react-toastify';
 
 import { Dropdown } from '@/atoms';
-import { BarChartIcon, ClipBoardIcon, TrashIcon } from '@/icons';
+import { BarChart, ClipBoard, Trash } from '@/icons';
 import { getConfigVariable } from '@/utils';
 
 interface Props {
@@ -24,14 +24,14 @@ const SettingsDropDown: FC<Props> = ({ code, onDelete }) => {
           navigator.clipboard.writeText(`${API_URL}/${code}`);
           toast.success('Link copied successfully');
         },
-        fieldImage: <ClipBoardIcon />,
+        fieldImage: <ClipBoard />,
       },
       {
         fieldTitle: 'Statistic',
         fieldFunction: () => router.push(`/links/${code}`),
-        fieldImage: <BarChartIcon width="25px" height="25px" fill="white" />,
+        fieldImage: <BarChart width="25px" height="25px" fill="white" />,
       },
-      { fieldTitle: 'Delete', fieldFunction: onDelete, fieldImage: <TrashIcon /> },
+      { fieldTitle: 'Delete', fieldFunction: onDelete, fieldImage: <Trash /> },
     ],
     [code, router, onDelete]
   );

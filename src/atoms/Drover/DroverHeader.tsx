@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-import { CloseIcon } from '@/icons';
+import { Close } from '@/icons';
 
 import { DROVER_TEST_IDS } from './testIds';
 
@@ -25,7 +25,7 @@ const DroverHeader: FC<Props> = ({ level, handleToggle, backToPrevLevel }) => (
       onClick={handleToggle}
       aria-label="Close button"
     >
-      <CloseIcon />
+      <Close />
     </button>
   </div>
 );

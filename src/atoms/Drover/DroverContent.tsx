@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { FC } from 'react';
 
 import type { MenuProps } from '@/components';
-import { ChevronIcon } from '@/icons';
+import { Chevron } from '@/icons';
 
 interface Props {
   currentMenu: MenuProps[][];
@@ -22,7 +22,7 @@ const DroverContent: FC<Props> = ({ currentMenu, level, selectLevel }) => (
             {menuItem.children && (
               <button className="flex font-bold text-xl" onClick={() => selectLevel(level + 1, menuItem.children!)}>
                 {menuItem.name}
-                <ChevronIcon fill="white" className="rotate-[270deg]" width="30px" height="30px" />
+                <Chevron fill="white" className="rotate-[270deg]" width="30px" height="30px" />
               </button>
             )}
             {menuItem.link && (

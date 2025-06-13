@@ -5,17 +5,17 @@ import type { FC } from 'react';
 
 import { SCREEN_SIZES } from '@/constants';
 import { useMediaQuery } from '@/hooks';
-import { BarChartIcon, HeartIcon } from '@/icons';
+import { BarChart, Heart } from '@/icons';
 
 export const qualitiesList = [
   {
-    image: <BarChartIcon />,
+    image: <BarChart />,
     title: 'Statistics',
     subTitle: 'Check the amount of clicks that your shortened URL received',
     gridClasses: 'col-span-2 col-start-2',
   },
   {
-    image: <HeartIcon width={100} height={100} fill="none" strokeWidth="2" stroke="red" />,
+    image: <Heart width={100} height={100} fill="none" strokeWidth="2" stroke="red" />,
     title: 'Easy',
     subTitle: 'Link Shortener is easy and fast, enter the long link to get your shortened link',
     gridClasses: 'col-span-2 col-start-4',

@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState, type FC, type ChangeEvent } from 'react';
 
 import { Input } from '@/atoms';
-import { HeartIcon } from '@/icons';
+import { Heart } from '@/icons';
 
 const SearchSection: FC = () => {
   const { query, push, pathname } = useRouter();
@@ -54,7 +54,7 @@ const SearchSection: FC = () => {
         } px-4 h-11 rounded flex gap-2 items-center`}
         onClick={() => updateURL(link && `searchString=${link}`, !showFavoriteList && 'search=favorite')}
       >
-        <HeartIcon width={20} height={20} className={showFavoriteList ? 'fill-pink-500' : 'fill-white-300'} />
+        <Heart width={20} height={20} className={showFavoriteList ? 'fill-pink-500' : 'fill-white-300'} />
         <p className="text-black-500 tablet-small:hidden">Favorite</p>
       </button>
     </div>

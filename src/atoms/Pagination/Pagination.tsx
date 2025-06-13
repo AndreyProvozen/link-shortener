@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import type { FC } from 'react';
 
-import { ChevronIcon } from '@/icons';
+import { Chevron } from '@/icons';
 
 import { PAGINATION_TEST_IDS } from './testIds';
 
@@ -43,7 +43,7 @@ const Pagination: FC<Props> = ({ perPage, count, className }) => {
         className="flex"
         disabled={disabledForPrev}
       >
-        <ChevronIcon className={clsx('rotate-90', { 'fill-white-500': disabledForPrev })} width={30} height={30} />
+        <Chevron className={clsx('rotate-90', { 'fill-white-500': disabledForPrev })} width={30} height={30} />
         <b className={clsx('text-xl', { 'text-white-500': disabledForPrev })}>Prev</b>
       </button>
       <b className="text-xl mx-5">{pageCounter}</b>
@@ -54,7 +54,7 @@ const Pagination: FC<Props> = ({ perPage, count, className }) => {
         disabled={disabledForNext}
       >
         <b className={clsx('text-xl', { 'text-white-500': disabledForNext })}>Next</b>
-        <ChevronIcon className={clsx('-rotate-90', { 'fill-white-500': disabledForNext })} width={30} height={30} />
+        <Chevron className={clsx('-rotate-90', { 'fill-white-500': disabledForNext })} width={30} height={30} />
       </button>
     </div>
   );

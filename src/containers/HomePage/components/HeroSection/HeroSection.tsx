@@ -2,7 +2,7 @@ import { useState, type ChangeEvent, type FormEvent } from 'react';
 
 import { Button, Input } from '@/atoms';
 import { LinksListSkeleton } from '@/components';
-import { ArrowIcon, HeroBGWaves, MouseIcon } from '@/icons';
+import { Arrow, HeroBGWaves, Mouse } from '@/icons';
 import { useLinksList, useLinksListActions } from '@/providers';
 
 import LinksListItem from '../../../../components/LinksListItem';
@@ -60,8 +60,8 @@ const HeroSection = () => {
         )}
       </div>
       <div className="absolute tablet-small:hidden animate-bounce bottom-2 left-1/2 -translate-x-1/2 z-10 text-white-50">
-        <MouseIcon width={36} height={36} />
-        <ArrowIcon width={24} height={24} className="mx-auto" />
+        <Mouse width={36} height={36} />
+        <Arrow width={24} height={24} className="mx-auto" />
       </div>
     </>
   );

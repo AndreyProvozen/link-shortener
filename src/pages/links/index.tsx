@@ -7,7 +7,7 @@ import type { GetUserLinksReturnProps } from '@/api/link/types';
 import { PageMeta } from '@/atoms';
 import { LINKS_LIST_PER_PAGE, META } from '@/constants';
 import LinksListPage from '@/containers/LinksListPage';
-import { HeartIcon, ThreeDotsIcon } from '@/icons';
+import { Heart, ThreeDots } from '@/icons';
 import { LinksListProvider, UserProvider } from '@/providers';
 
 interface Props {
@@ -24,9 +24,9 @@ const LinksList: FC<Props> = ({ initialUser, initialLinksData }) => (
       </LinksListProvider>
     </UserProvider>
     <div className="fixed opacity-0 pointer-events-none">
-      <ThreeDotsIcon id="three-dots-icon" className="fill-pink-700 hover:fill-pink-500" />
-      <HeartIcon id="heart-icon" className="fill-red-700 stroke-2 stroke-red-700" />
-      <HeartIcon id="heart-outline-icon" className="fill-none stroke-2 stroke-red-700" />
+      <ThreeDots id="three-dots-icon" className="fill-pink-700 hover:fill-pink-500" />
+      <Heart id="heart-icon" className="fill-red-700 stroke-2 stroke-red-700" />
+      <Heart id="heart-outline-icon" className="fill-none stroke-2 stroke-red-700" />
     </div>
   </>
 );

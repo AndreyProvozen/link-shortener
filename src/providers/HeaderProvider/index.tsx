@@ -5,7 +5,7 @@ import { Dropdown } from '@/atoms';
 import type { MenuProps } from '@/components';
 import { SCREEN_SIZES } from '@/constants';
 import { useMediaQuery } from '@/hooks';
-import { HeartIcon, LogOutIcon, UserIcon } from '@/icons';
+import { Heart, LogOut, User } from '@/icons';
 
 import { useUser } from '../UserProvider';
 
@@ -28,7 +28,7 @@ export const HeaderDataProvider = ({ children }: ProviderProps) => {
             {
               customField: (
                 <div className="flex items-center">
-                  <UserIcon className="flex-shrink-0 rounded-full overflow-hidden mr-2 w-auto" width={48} height={48} />
+                  <User className="flex-shrink-0 rounded-full overflow-hidden mr-2 w-auto" width={48} height={48} />
                   <div className="overflow-hidden">
                     <p className="text-ellipsis overflow-hidden">{user.username}</p>
                     <p className="text-ellipsis overflow-hidden">{user.email}</p>
@@ -39,12 +39,12 @@ export const HeaderDataProvider = ({ children }: ProviderProps) => {
             {
               fieldTitle: 'Favorite links',
               fieldFunction: () => router.push(`${window.location.origin}/links?search=favorite`),
-              fieldImage: <HeartIcon fill="white" strokeWidth="2" stroke="white" />,
+              fieldImage: <Heart fill="white" strokeWidth="2" stroke="white" />,
             },
             {
               fieldTitle: 'Sign out',
               fieldFunction: () => setIsSignOutModalOpen(true),
-              fieldImage: <LogOutIcon />,
+              fieldImage: <LogOut />,
             },
           ]
         : [],

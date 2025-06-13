@@ -5,7 +5,7 @@ import type { LinkProps } from '@/api/link/types';
 import { Link } from '@/atoms';
 import { DeleteLinkModal, SettingsDropDown } from '@/components';
 import { useIsMounted } from '@/hooks';
-import { EyeIcon } from '@/icons';
+import { Eye } from '@/icons';
 import { getConfigVariable } from '@/utils';
 
 import { LINKS_LIST_ITEM_TEST_IDS } from './testIds';
@@ -49,7 +49,7 @@ const LinksListItem: FC<Props> = ({
         <p className="max-w-sm text-white-500 line-clamp-1 break-all text-sm">{url}</p>
       </div>
       <div className="text-black-900 flex items-center gap-2 tablet-small:hidden">
-        {clicked} <EyeIcon />
+        {clicked} <Eye />
       </div>
       <div className="flex gap-2">
         <svg

@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from 'react';
 
 import { Drover } from '@/atoms';
-import { MenuIcon } from '@/icons';
+import { Menu } from '@/icons';
 import { useHeaderData } from '@/providers';
 
 export interface MenuProps {
@@ -23,7 +23,7 @@ const MobileHeader: FC<Props> = ({ textBlack }) => {
 
   return (
     <div>
-      <MenuIcon onClick={handleToggle} cursor="pointer" className={textBlack ? 'fill-black-900' : 'fill-white-50'} />
+      <Menu onClick={handleToggle} cursor="pointer" className={textBlack ? 'fill-black-900' : 'fill-white-50'} />
       <Drover isOpen={isOpenDrover} handleToggle={handleToggle} menu={navFields} />
     </div>
   );

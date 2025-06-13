@@ -4,7 +4,7 @@ import type { Dispatch, FC, ReactNode, RefObject, SetStateAction } from 'react';
 import { useEffect, useRef, useState } from 'react';
 
 import useClickOutside from '@/hooks/useClickOutside';
-import { CloseIcon } from '@/icons';
+import { Close } from '@/icons';
 
 import { MODAL_WRAPPER_TEST_IDS } from './testIds';
 
@@ -54,7 +54,7 @@ const ModalWrapper: FC<Props> = ({ setIsModalOpen, children, contentClasses }) =
               className="absolute top-2 right-2 p-1"
               onClick={handleClose}
             >
-              <CloseIcon fill="#000" width="24px" height="24px" />
+              <Close fill="#000" width="24px" height="24px" />
             </button>
             {children}
           </motion.div>
