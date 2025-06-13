@@ -1,6 +1,6 @@
 import { NextPageContext } from 'next';
 
-import PageMeta from '@/atoms/PageMeta';
+import { PageMeta } from '@/atoms';
 import { META } from '@/constants';
 import ErrorPage from '@/containers/ErrorPage';
 

@@ -32,7 +32,7 @@ const SearchSection: FC = () => {
     // TODO: simplify props usage
     updateURL(link && `searchString=${link}`, showFavoriteList && 'search=favorite');
 
-    // updateURL as a dependency make dependency cycle
+    // NOTE: updateURL as a dependency make dependency cycle
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [link, showFavoriteList]);
 
@@ -40,16 +40,6 @@ const SearchSection: FC = () => {
 
   return (
     <div className="flex justify-between w-full items-start border-b border-white-300 pb-5 gap-5">
-      {/* TODO: rewrite to button from atoms */}
-      <button
-        className={`border-2 ${
-          showFavoriteList ? 'border-pink-500 bg-pink-300/20' : 'border-white-300'
-        } px-4 py-2 rounded flex gap-2 items-center ml-3`}
-        onClick={() => updateURL(link && `searchString=${link}`, !showFavoriteList && 'search=favorite')}
-      >
-        <HeartIcon width={20} height={20} className={showFavoriteList ? 'fill-pink-500' : 'fill-white-300'} />
-        <p className="text-black-500">Favorite</p>
-      </button>
       <Input
         value={link}
         onChange={onSearchChange}
@@ -57,6 +47,16 @@ const SearchSection: FC = () => {
         wrapperClassName="max-w-sm"
         className="w-full"
       />
+      {/* TODO: rewrite to button from atoms */}
+      <button
+        className={`border-2 ${
+          showFavoriteList ? 'border-pink-500 bg-pink-300/20' : 'border-white-300'
+        } px-4 h-11 rounded flex gap-2 items-center`}
+        onClick={() => updateURL(link && `searchString=${link}`, !showFavoriteList && 'search=favorite')}
+      >
+        <HeartIcon width={20} height={20} className={showFavoriteList ? 'fill-pink-500' : 'fill-white-300'} />
+        <p className="text-black-500 tablet-small:hidden">Favorite</p>
+      </button>
     </div>
   );
 };

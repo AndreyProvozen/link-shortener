@@ -15,6 +15,7 @@ const PWAProvider = withPWA({
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+
   publicRuntimeConfig: { API_URL: process.env.API_URL },
   images: {
     formats: ['image/avif', 'image/webp'],

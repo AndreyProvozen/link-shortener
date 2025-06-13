@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 
 import { Button, Input } from '@/atoms';
 import { LinksListSkeleton } from '@/components';
@@ -7,7 +7,7 @@ import { useLinksList, useLinksListActions } from '@/providers';
 
 import LinksListItem from '../../../../components/LinksListItem';
 
-const HeroSection: FC = () => {
+const HeroSection = () => {
   const [longLink, setLongLink] = useState('');
   const { favoriteList, linksList, isLoading } = useLinksList();
   const { addNewLink, toggleFavorite } = useLinksListActions();
@@ -41,7 +41,7 @@ const HeroSection: FC = () => {
           </Button>
         </form>
         {isLoading ? (
-          <LinksListSkeleton isHomePageList={true} />
+          <LinksListSkeleton isHomePageList />
         ) : (
           linksList.map(linkData => {
             const isFavorite = favoriteList.includes(linkData.code);

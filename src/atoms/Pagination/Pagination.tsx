@@ -2,9 +2,9 @@ import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 
-import { PAGINATION_TEST_IDS } from './testIds';
-
 import { ChevronIcon } from '@/icons';
+
+import { PAGINATION_TEST_IDS } from './testIds';
 
 interface Props {
   perPage: number;
