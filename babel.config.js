@@ -4,7 +4,7 @@ module.exports = {
     [
       'transform-imports',
       {
-        // '@/atoms': { transform: 'src/atoms/${member}', preventFullImport: true },
+        '@/atoms': { transform: '@/atoms/${member}', preventFullImport: true },
         '@/icons': { transform: '@/icons/${member}', preventFullImport: true },
         // '@/components': { transform: 'src/components/${member}', preventFullImport: true },
         '@/utils': { transform: '@/utils/${member}', preventFullImport: true },
