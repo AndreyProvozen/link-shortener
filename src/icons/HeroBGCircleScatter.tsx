@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion';
+import { motion, easeInOut } from 'framer-motion';
 import type { FC, SVGProps } from 'react';
 
 interface Props extends SVGProps<SVGSVGElement> {
   blobsColor?: string;
 }
 
-const floatTransition = { repeat: Infinity, ease: 'easeInOut', repeatType: 'mirror' as const };
+const floatTransition = { repeat: Infinity, ease: easeInOut, repeatType: 'mirror' as const };
 
 const HeroBGCircleScatter: FC<Props> = ({ blobsColor = '#FC88ED', ...props }) => (
   <svg viewBox="0 0 900 450" xmlns="http://www.w3.org/2000/svg" {...props}>

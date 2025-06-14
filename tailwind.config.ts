@@ -5,7 +5,6 @@ const config: Config = {
     './src/pages/**/*.{ts,tsx}',
     './src/components/**/*.{ts,tsx}',
     './src/atoms/**/*.{ts,tsx}',
-    './src/utils/**/*.{ts,tsx}',
     './src/containers/**/*.{ts,tsx}',
   ],
   theme: {

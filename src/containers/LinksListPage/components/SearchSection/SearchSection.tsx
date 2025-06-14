@@ -49,6 +49,7 @@ const SearchSection: FC = () => {
       />
       {/* TODO: rewrite to button from atoms */}
       <button
+        aria-label="Toggle favorite"
         className={`border-2 ${
           showFavoriteList ? 'border-pink-500 bg-pink-300/20' : 'border-white-300'
         } px-4 h-11 rounded flex gap-2 items-center`}

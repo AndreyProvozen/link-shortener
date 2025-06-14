@@ -17,8 +17,22 @@ const PWAProvider = withPWA({
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-
   publicRuntimeConfig: { API_URL: process.env.API_URL },
+  headers: async () => [
+    {
+      source: '/:path*',
+      headers: [
+        { key: 'Strict-Transport-Security', value: 'max-age=31536000; includeSubDomains; preload' },
+        { key: 'X-Content-Type-Options', value: 'nosniff' },
+        { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+        { key: 'Permissions-Policy', value: 'geolocation=(), microphone=(), camera=()' },
+        { key: 'X-Frame-Options', value: 'DENY' },
+      ],
+    },
+  ],
+  experimental: {
+    forceSwcTransforms: true,
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [320, 420, 768, 1024, 1280, 1536],
