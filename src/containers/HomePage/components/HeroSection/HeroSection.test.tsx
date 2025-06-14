@@ -8,7 +8,7 @@ const PLACEHOLDER_MESSAGE = 'Paste the URL to be shortened';
 const LONG_LINK = 'https://www.google.com';
 const SKELETON_ID = 'links-list-skeleton';
 
-jest.mock('@/providers', () => ({ useLinksList: jest.fn(), useLinksListActions: jest.fn() }));
+jest.mock('@/providers/LinksListProvider', () => ({ useLinksList: jest.fn(), useLinksListActions: jest.fn() }));
 jest.mock('@/components', () => ({ LinksListSkeleton: () => <div data-testid={SKELETON_ID} /> }));
 
 const mockedUseLinksList = useLinksList as jest.Mock;

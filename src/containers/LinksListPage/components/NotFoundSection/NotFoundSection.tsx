@@ -1,6 +1,7 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import type { FC } from 'react';
+
+import { Link } from '@/atoms';
 
 interface Props {
   title: string;
@@ -13,7 +14,7 @@ const NotFoundSection: FC<Props> = ({ title, href, linkText, linkClassName = '' 
   <div className="text-center">
     <Image src="/image/laptop.png" alt="Not found image" width={200} height={200} className="mx-auto" />
     <h2 className="text-2xl font-bold my-6 mx-auto max-w-xl">{title}</h2>
-    <Link href={href} className={linkClassName}>
+    <Link variant="button" href={href} className={linkClassName}>
       {linkText}
     </Link>
   </div>

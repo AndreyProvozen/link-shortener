@@ -7,7 +7,7 @@ import { PageMeta } from '@/atoms';
 import { LINKS_LIST_PER_PAGE } from '@/constants';
 import { META } from '@/constants/meta';
 import LinksListPage from '@/containers/LinksListPage';
-import { Heart, ThreeDots } from '@/icons';
+import { Eye, Heart, ThreeDots } from '@/icons';
 import { LinksListProvider } from '@/providers/LinksListProvider';
 import { UserProvider } from '@/providers/UserProvider';
 import type { GetUserLinksReturnProps, User } from '@/types';
@@ -25,11 +25,14 @@ const LinksList: FC<Props> = ({ initialUser, initialLinksData }) => (
         <LinksListPage />
       </LinksListProvider>
     </UserProvider>
-    <div className="fixed opacity-0 pointer-events-none">
-      <ThreeDots id="three-dots-icon" className="fill-pink-700 hover:fill-pink-500" />
-      <Heart id="heart-icon" className="fill-red-700 stroke-2 stroke-red-700" />
-      <Heart id="heart-outline-icon" className="fill-none stroke-2 stroke-red-700" />
-    </div>
+    {initialUser && (
+      <div className="fixed opacity-0 pointer-events-none">
+        <Heart id="heart-icon" className="fill-red-700 stroke-2 stroke-red-700" />
+        <ThreeDots id="three-dots-icon" className="fill-pink-700" />
+        <Heart id="heart-outline-icon" className="fill-none stroke-2 stroke-red-700" />
+        <Eye id="eye-icon" />
+      </div>
+    )}
   </>
 );
 

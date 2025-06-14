@@ -4,7 +4,6 @@ import { useState, type FC } from 'react';
 import { Link } from '@/atoms';
 import { DeleteLinkModal, SettingsDropDown } from '@/components';
 import { useIsMounted } from '@/hooks';
-import { Eye } from '@/icons';
 import type { LinkProps } from '@/types';
 import { getConfigVariable } from '@/utils';
 
@@ -49,7 +48,10 @@ const LinksListItem: FC<Props> = ({
         <p className="max-w-sm text-white-500 line-clamp-1 break-all text-sm">{url}</p>
       </div>
       <div className="text-black-900 flex items-center gap-2 tablet-small:hidden">
-        {clicked} <Eye />
+        {clicked}
+        <svg viewBox="0 0 16 16" width="16px">
+          <use href="#eye-icon" />
+        </svg>
       </div>
       <div className="flex gap-2">
         <svg
