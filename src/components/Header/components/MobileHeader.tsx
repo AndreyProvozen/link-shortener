@@ -1,20 +1,10 @@
-import type { FC, ReactNode } from 'react';
+import type { FC } from 'react';
 
 import { Drover } from '@/atoms';
 import { Menu } from '@/icons';
 import { useHeaderData } from '@/providers/HeaderProvider';
 
-export interface MenuProps {
-  name?: string;
-  link?: string;
-  handleFunction?: () => void;
-  component?: ReactNode;
-  children?: MenuProps[];
-}
-
-interface Props {
-  textBlack?: boolean;
-}
+type Props = { textBlack?: boolean };
 
 const MobileHeader: FC<Props> = ({ textBlack }) => {
   const { navFields, isOpenDrover, setIsOpenDrover } = useHeaderData();

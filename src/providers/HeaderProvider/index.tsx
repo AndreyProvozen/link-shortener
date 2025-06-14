@@ -2,10 +2,10 @@ import { useRouter } from 'next/router';
 import { createContext, useContext, useMemo, useState } from 'react';
 
 import { Dropdown } from '@/atoms';
-import type { MenuProps } from '@/components';
 import { SCREEN_SIZES } from '@/constants';
 import { useMediaQuery } from '@/hooks';
 import { Heart, LogOut, User } from '@/icons';
+import type { MenuProps } from '@/types';
 
 import { useUser } from '../UserProvider';
 

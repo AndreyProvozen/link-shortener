@@ -1,6 +1,6 @@
 import { useEffect, useState, type FC } from 'react';
 
-import type { MenuProps } from '@/components';
+import type { MenuProps } from '@/types';
 
 import DroverContent from './DroverContent';
 import DroverHeader from './DroverHeader';

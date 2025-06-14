@@ -7,6 +7,11 @@ export enum SCREEN_SIZES {
   MOBILE_SMALL_BELOW = '(max-width: 400px)',
 }
 
+export const enum BACKGROUND_VARIANTS {
+  WAVE = 'wave',
+  BLOB = 'blob',
+}
+
 export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export const URL_REGEX = /^(ftp|http|https):\/\/[^ "]+$/;
 

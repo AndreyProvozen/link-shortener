@@ -1,7 +1,8 @@
 import type { FC } from 'react';
 
 import { Link } from '@/atoms';
-import { FullScreenWrapper, BACKGROUND_VARIANTS } from '@/components';
+import { FullScreenWrapper } from '@/components';
+import { BACKGROUND_VARIANTS } from '@/constants';
 
 const ActivationSuccessPage: FC = () => (
   <FullScreenWrapper patternColor="#05c148" backgroundVariant={BACKGROUND_VARIANTS.BLOB}>

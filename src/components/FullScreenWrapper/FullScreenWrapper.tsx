@@ -3,11 +3,7 @@ import dynamic from 'next/dynamic';
 import { memo, type FC, type PropsWithChildren } from 'react';
 
 import { Header } from '@/components';
-
-export const enum BACKGROUND_VARIANTS {
-  WAVE = 'wave',
-  BLOB = 'blob',
-}
+import { BACKGROUND_VARIANTS } from '@/constants';
 
 interface Props extends PropsWithChildren {
   patternColor?: string;
