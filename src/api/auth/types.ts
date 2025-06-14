@@ -1,12 +1,7 @@
 import type { IncomingMessage, ServerResponse } from 'http';
 
-export interface ServerProps {
-  req?: IncomingMessage;
-  res?: ServerResponse;
-}
-
+export type ServerProps = { req?: IncomingMessage; res?: ServerResponse };
 export type CredentialsProps = { email: string; password: string };
-
 export type MessageProps = { message?: string };
 
 export interface SignUpProps extends CredentialsProps {

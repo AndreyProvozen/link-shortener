@@ -2,7 +2,7 @@ import type { FC, ReactNode } from 'react';
 
 import { Drover } from '@/atoms';
 import { Menu } from '@/icons';
-import { useHeaderData } from '@/providers';
+import { useHeaderData } from '@/providers/HeaderProvider';
 
 export interface MenuProps {
   name?: string;

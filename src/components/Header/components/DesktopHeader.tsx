@@ -1,11 +1,9 @@
 import type { FC } from 'react';
 
 import { Link } from '@/atoms';
-import { useHeaderData } from '@/providers';
+import { useHeaderData } from '@/providers/HeaderProvider';
 
-interface Props {
-  textBlack?: boolean;
-}
+type Props = { textBlack?: boolean };
 
 const DesktopHeader: FC<Props> = () => {
   const { navFields } = useHeaderData();

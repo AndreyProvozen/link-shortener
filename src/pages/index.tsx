@@ -8,7 +8,8 @@ import { PageMeta } from '@/atoms';
 import { META } from '@/constants';
 import HomePage from '@/containers/HomePage';
 import { Star, ThreeDots, Chevron, Heart } from '@/icons';
-import { UserProvider, LinksListProvider } from '@/providers';
+import { LinksListProvider } from '@/providers/LinksListProvider';
+import { UserProvider } from '@/providers/UserProvider';
 
 interface Props {
   initialUser: User | null;

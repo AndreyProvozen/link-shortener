@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import { useLinksList, useLinksListActions } from '@/providers';
+import { useLinksList, useLinksListActions } from '@/providers/LinksListProvider';
 
 import HeroSection from './HeroSection';
 

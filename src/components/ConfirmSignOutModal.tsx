@@ -1,7 +1,8 @@
 import type { Dispatch, FC, SetStateAction } from 'react';
 
 import { ModalWrapper } from '@/atoms';
-import { useHeaderData, useUser } from '@/providers';
+import { useHeaderData } from '@/providers/HeaderProvider';
+import { useUser } from '@/providers/UserProvider';
 
 interface Props {
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;

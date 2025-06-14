@@ -3,7 +3,7 @@ import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { Button, Input } from '@/atoms';
 import { LinksListSkeleton } from '@/components';
 import { Arrow, HeroBGWaves, Mouse } from '@/icons';
-import { useLinksList, useLinksListActions } from '@/providers';
+import { useLinksList, useLinksListActions } from '@/providers/LinksListProvider';
 
 import LinksListItem from '../../../../components/LinksListItem';
 

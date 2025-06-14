@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import type { Dispatch, FC, SetStateAction } from 'react';
 
 import { Link, ModalWrapper } from '@/atoms';
-import { useLinksListActions } from '@/providers';
+import { useLinksListActions } from '@/providers/LinksListProvider';
 import { getConfigVariable } from '@/utils';
 
 interface Props {

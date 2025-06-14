@@ -5,7 +5,8 @@ import type { FC } from 'react';
 
 import { SCREEN_SIZES } from '@/constants';
 import { useMediaQuery } from '@/hooks';
-import { HeaderDataProvider, useUser } from '@/providers';
+import { HeaderDataProvider } from '@/providers/HeaderProvider';
+import { useUser } from '@/providers/UserProvider';
 
 import ConfirmSignOutModal from '../ConfirmSignOutModal';
 

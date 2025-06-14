@@ -4,7 +4,7 @@ import { Pagination } from '@/atoms';
 import { Header, LinksListItem, LinksListSkeleton, PaginationSkeleton } from '@/components';
 import { LINKS_LIST_PER_PAGE } from '@/constants';
 import { HeroBGCircleScatter } from '@/icons';
-import { useLinksList, useLinksListActions } from '@/providers';
+import { useLinksList, useLinksListActions } from '@/providers/LinksListProvider';
 
 import { SearchSection, NotFoundSection } from './components';
 
