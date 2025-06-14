@@ -1,4 +1,5 @@
-import { customFetch, setTokens } from '@/utils';
+import { customFetch } from '@/utils';
+import { setTokens } from '@/utils/tokenUtils';
 
 import type {
   CredentialsProps,

@@ -17,3 +17,6 @@ export const REFRESH_TOKEN_KEY = 'LS_REFRESH_TOKEN';
 
 export const FAVORITE_LIST_KEY = 'FAVORITE_LIST';
 export const LINKS_LIST_PER_PAGE = 10;
+
+export const COOKIE_DAYS = 7;
+export const MAX_AGE = 60 * 60 * 24 * COOKIE_DAYS;
