@@ -1,9 +1,8 @@
 import type { GetServerSideProps } from 'next';
 import type { FC } from 'react';
 
-import { check, getUserLinks } from '@/api';
-import type { User } from '@/api/auth/types';
-import type { GetUserLinksReturnProps } from '@/api/link/types';
+import { check } from '@/api/auth';
+import { getUserLinks } from '@/api/link';
 import { PageMeta } from '@/atoms';
 import { LINKS_LIST_PER_PAGE } from '@/constants';
 import { META } from '@/constants/meta';
@@ -11,6 +10,7 @@ import LinksListPage from '@/containers/LinksListPage';
 import { Heart, ThreeDots } from '@/icons';
 import { LinksListProvider } from '@/providers/LinksListProvider';
 import { UserProvider } from '@/providers/UserProvider';
+import type { GetUserLinksReturnProps, User } from '@/types';
 
 interface Props {
   initialUser: User | null;

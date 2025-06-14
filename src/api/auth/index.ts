@@ -1,15 +1,8 @@
+import type { ServerProps, User } from '@/types';
 import { customFetch } from '@/utils';
 import { setTokens } from '@/utils/tokenUtils';
 
-import type {
-  CredentialsProps,
-  LoginResponseProps,
-  MessageProps,
-  RefreshResponseProps,
-  ServerProps,
-  SignUpProps,
-  User,
-} from './types';
+import type { CredentialsProps, LoginResponseProps, MessageProps, RefreshResponseProps, SignUpProps } from './types';
 
 export const signUp = async (props: SignUpProps) => {
   const response = await customFetch<MessageProps>('signup', { method: 'POST', json: props });

@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 import { useState, type FC } from 'react';
 
-import type { LinkProps } from '@/api/link/types';
 import { Link } from '@/atoms';
 import { DeleteLinkModal, SettingsDropDown } from '@/components';
 import { useIsMounted } from '@/hooks';
 import { Eye } from '@/icons';
+import type { LinkProps } from '@/types';
 import { getConfigVariable } from '@/utils';
 
 import { LINKS_LIST_ITEM_TEST_IDS } from './testIds';

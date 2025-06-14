@@ -1,6 +1,5 @@
-import type { IncomingMessage, ServerResponse } from 'http';
+import type { User } from '@/types';
 
-export type ServerProps = { req?: IncomingMessage; res?: ServerResponse };
 export type CredentialsProps = { email: string; password: string };
 export type MessageProps = { message?: string };
 
@@ -11,13 +10,6 @@ export interface SignUpProps extends CredentialsProps {
 export interface LoginResponseProps extends MessageProps {
   accessToken: string;
   refreshToken: string;
-}
-
-export interface User {
-  id: string;
-  email: string;
-  username: string;
-  isActivated: string;
 }
 
 export interface RefreshResponseProps {

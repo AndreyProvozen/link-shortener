@@ -1,8 +1,8 @@
 import { createContext, useCallback, useContext, useMemo, useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { logout } from '@/api';
-import type { User } from '@/api/auth/types';
+import { logout } from '@/api/auth';
+import type { User } from '@/types';
 
 import type { ContextProps, ProviderProps } from './types';
 

@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 
-import { signUp } from '@/api';
+import { signUp } from '@/api/auth';
 import { EMAIL_REGEX } from '@/constants';
 
 interface FormFieldsProps {

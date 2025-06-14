@@ -1,7 +1,7 @@
 import type { GetServerSideProps } from 'next';
 import type { FC } from 'react';
 
-import { check } from '@/api';
+import { check } from '@/api/auth';
 import { PageMeta } from '@/atoms';
 import { META } from '@/constants/meta';
 import LoginPage from '@/containers/LoginPage';

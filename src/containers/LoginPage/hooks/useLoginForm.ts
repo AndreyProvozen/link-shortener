@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState, type FormEvent } from 'react';
 
-import { login } from '@/api';
+import { login } from '@/api/auth';
 import { EMAIL_REGEX } from '@/constants';
 
 interface ErrorsProps {

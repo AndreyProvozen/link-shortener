@@ -1,6 +1,6 @@
 import type { Dispatch, PropsWithChildren, SetStateAction } from 'react';
 
-import type { User } from '@/api/auth/types';
+import type { User } from '@/types';
 
 type UserOrNull = User | null;
 

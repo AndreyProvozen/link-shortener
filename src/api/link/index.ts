@@ -1,6 +1,7 @@
+import type { GetUserLinksReturnProps, LinkProps } from '@/types';
 import { customFetch } from '@/utils';
 
-import type { CreateLinkProps, GetUserLinksProps, GetUserLinksReturnProps, LinkProps } from './types';
+import type { CreateLinkProps, GetUserLinksProps } from './types';
 
 export const createLink = async ({ url }: CreateLinkProps) =>
   await customFetch<LinkProps>('links', { method: 'POST', json: { url } });

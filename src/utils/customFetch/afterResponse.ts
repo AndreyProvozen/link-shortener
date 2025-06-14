@@ -2,7 +2,7 @@ import type { ServerResponse } from 'http';
 
 import ky, { type NormalizedOptions, type KyResponse } from 'ky-universal';
 
-import { refreshAccessToken } from '@/api';
+import { refreshAccessToken } from '@/api/auth';
 
 import { getTokens, clearTokens } from '../tokenUtils';
 

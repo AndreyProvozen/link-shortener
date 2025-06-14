@@ -1,15 +1,15 @@
 import type { GetServerSideProps } from 'next';
 import type { FC } from 'react';
 
-import { check, getUserLinks } from '@/api';
-import type { User } from '@/api/auth/types';
-import type { GetUserLinksReturnProps } from '@/api/link/types';
+import { check } from '@/api/auth';
+import { getUserLinks } from '@/api/link';
 import { PageMeta } from '@/atoms';
 import { META } from '@/constants/meta';
 import HomePage from '@/containers/HomePage';
 import { Star, ThreeDots, Chevron, Heart } from '@/icons';
 import { LinksListProvider } from '@/providers/LinksListProvider';
 import { UserProvider } from '@/providers/UserProvider';
+import type { GetUserLinksReturnProps, User } from '@/types';
 
 interface Props {
   initialUser: User | null;

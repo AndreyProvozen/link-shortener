@@ -2,7 +2,7 @@ import Cookies from 'js-cookie';
 import { useCallback, useEffect, useMemo, useState, createContext, useContext } from 'react';
 import { toast } from 'react-toastify';
 
-import { createLink, deleteLink } from '@/api';
+import { createLink, deleteLink } from '@/api/link';
 import { FAVORITE_LIST_KEY } from '@/constants';
 
 import type { ContextProps, ContextActionsProps, ProviderProps } from './types';
