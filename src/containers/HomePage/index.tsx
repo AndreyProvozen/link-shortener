@@ -1,6 +1,6 @@
 import { Accordion } from '@/atoms';
 import { Footer, Header } from '@/components';
-import { GUEST_INFO_BLOCK, LOGGED_INFO_BLOCK, MOCK_QUESTIONS, MOCK_TEXT_WITH_IMAGE } from '@/constants';
+import { GUEST_INFO_BLOCK, LOGGED_INFO_BLOCK, MOCK_QUESTIONS, MOCK_TEXT_WITH_IMAGE } from '@/constants/mock';
 import { useUser } from '@/providers/UserProvider';
 
 import { QualityBlock, InfoBlock, TextWithImage, HeroSection } from './components';

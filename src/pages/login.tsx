@@ -3,7 +3,7 @@ import type { FC } from 'react';
 
 import { check } from '@/api';
 import { PageMeta } from '@/atoms';
-import { META } from '@/constants';
+import { META } from '@/constants/meta';
 import LoginPage from '@/containers/LoginPage';
 
 const Login: FC = () => (

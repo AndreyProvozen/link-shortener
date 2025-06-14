@@ -1,7 +1,7 @@
 import type { NextPageContext } from 'next';
 
 import { PageMeta } from '@/atoms';
-import { META } from '@/constants';
+import { META } from '@/constants/meta';
 import ErrorPage from '@/containers/ErrorPage';
 
 interface Props {

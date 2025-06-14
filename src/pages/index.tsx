@@ -5,7 +5,7 @@ import { check, getUserLinks } from '@/api';
 import type { User } from '@/api/auth/types';
 import type { GetUserLinksReturnProps } from '@/api/link/types';
 import { PageMeta } from '@/atoms';
-import { META } from '@/constants';
+import { META } from '@/constants/meta';
 import HomePage from '@/containers/HomePage';
 import { Star, ThreeDots, Chevron, Heart } from '@/icons';
 import { LinksListProvider } from '@/providers/LinksListProvider';

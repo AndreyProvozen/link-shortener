@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 
 import { PageMeta } from '@/atoms';
-import { META } from '@/constants';
+import { META } from '@/constants/meta';
 import SignUpPage from '@/containers/SignUpPage';
 
 export { getServerSideProps } from './login';
