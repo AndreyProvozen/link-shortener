@@ -38,7 +38,7 @@ git clone https://github.com/AndreyProvozen/link-shortener-be.git
 cd link-shortener-be
 ```
 
-Watch the backend repository README.md to set up the backend.
+Watch the backend repository `README.md` to set up the backend.
 
 ### 5️⃣ Run the backend
 

@@ -78,4 +78,4 @@ export const MOCK_QUESTIONS = [
 ];
 
 export const LOGGED_INFO_BLOCK = { title: 'Need Help? We’re Here for You', btnHref: '/#', btnText: 'Contact Support' };
-export const GUEST_INFO_BLOCK = { title: 'Need Help? We’re Here for You', btnHref: '/#', btnText: 'Contact Support' };
+export const GUEST_INFO_BLOCK = { title: 'Sign up to see full link statistic', btnHref: '/signup', btnText: 'Sign up' };
