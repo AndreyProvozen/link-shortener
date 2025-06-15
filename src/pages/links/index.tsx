@@ -36,16 +36,23 @@ const LinksList: FC<Props> = ({ initialUser, initialLinksData }) => (
   </>
 );
 
-export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+export const getServerSideProps: GetServerSideProps = async ({ req, res, query }) => {
   const user = await check({ req, res });
 
-  if (user) {
-    const initialLinksData = await getUserLinks({ limit: LINKS_LIST_PER_PAGE, req, res });
+  if (!user) return { props: {} };
 
-    return { props: { initialUser: user, initialLinksData } };
-  }
+  const { searchString, favorite } = query;
 
-  return { props: {} };
+  const initialLinksData = await getUserLinks({
+    limit: LINKS_LIST_PER_PAGE,
+    offset: 0,
+    searchString: searchString as string,
+    favorite: favorite === 'true',
+    req,
+    res,
+  });
+
+  return { props: { initialUser: user, initialLinksData } };
 };
 
 export default LinksList;

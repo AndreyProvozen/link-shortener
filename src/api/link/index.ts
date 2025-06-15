@@ -13,8 +13,20 @@ export const getLinkByCode = async (code: string) => {
   return response;
 };
 
-export const getUserLinks = async ({ limit = 10, offset = 0, req, res }: GetUserLinksProps) => {
-  const query = new URLSearchParams({ limit: `${limit}`, offset: `${offset}` }).toString();
+export const getUserLinks = async ({
+  limit = 10,
+  offset = 0,
+  searchString = '',
+  favorite,
+  req,
+  res,
+}: GetUserLinksProps) => {
+  const query = new URLSearchParams({
+    limit: `${limit}`,
+    offset: `${offset}`,
+    searchString: `${searchString}`,
+    favorite: `${favorite}`,
+  }).toString();
 
   return await customFetch<GetUserLinksReturnProps>(`links?${query}`, { req, res });
 };

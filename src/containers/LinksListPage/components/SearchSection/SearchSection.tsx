@@ -9,7 +9,7 @@ const SearchSection: FC = () => {
 
   const [link, setLink] = useState(query?.searchString || '');
 
-  const showFavoriteList = query?.search === 'favorite';
+  const showFavoriteList = query?.favorite === 'true';
 
   const updateURL = (searchStringParam: string, favoriteParam: string | boolean) => {
     const queryParams = [searchStringParam, favoriteParam].filter(Boolean).join('&');
@@ -22,15 +22,12 @@ const SearchSection: FC = () => {
     let timeoutId: string | number | NodeJS.Timeout;
 
     if (link || showFavoriteList) {
-      timeoutId = setTimeout(
-        () => updateURL(link && `searchString=${link}`, showFavoriteList && 'search=favorite'),
-        500
-      );
+      timeoutId = setTimeout(() => updateURL(link && `searchString=${link}`, showFavoriteList && 'favorite=true'), 500);
 
       return () => clearTimeout(timeoutId);
     }
     // TODO: simplify props usage
-    updateURL(link && `searchString=${link}`, showFavoriteList && 'search=favorite');
+    updateURL(link && `searchString=${link}`, showFavoriteList && 'favorite=true');
 
     // NOTE: updateURL as a dependency make dependency cycle
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -53,7 +50,7 @@ const SearchSection: FC = () => {
         className={`border-2 ${
           showFavoriteList ? 'border-pink-500 bg-pink-300/20' : 'border-white-300'
         } px-4 h-11 rounded flex gap-2 items-center`}
-        onClick={() => updateURL(link && `searchString=${link}`, !showFavoriteList && 'search=favorite')}
+        onClick={() => updateURL(link && `searchString=${link}`, !showFavoriteList && 'favorite=true')}
       >
         <Heart width={20} height={20} className={showFavoriteList ? 'fill-pink-500' : 'fill-white-300'} />
         <p className="text-black-500 tablet-small:hidden">Favorite</p>

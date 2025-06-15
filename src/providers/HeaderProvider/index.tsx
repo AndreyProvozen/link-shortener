@@ -38,7 +38,7 @@ export const HeaderDataProvider = ({ children }: ProviderProps) => {
             },
             {
               fieldTitle: 'Favorite links',
-              fieldFunction: () => router.push(`${window.location.origin}/links?search=favorite`),
+              fieldFunction: () => router.push(`${window.location.origin}/links?favorite=true`),
               fieldImage: <Heart fill="white" strokeWidth="2" stroke="white" />,
             },
             {
@@ -59,7 +59,7 @@ export const HeaderDataProvider = ({ children }: ProviderProps) => {
             children: [
               {
                 name: 'Favorite links',
-                handleFunction: () => router.push(`${window.location.origin}/links?search=favorite`),
+                handleFunction: () => router.push(`${window.location.origin}/links?favorite=true`),
               },
               {
                 name: 'Sign out',
