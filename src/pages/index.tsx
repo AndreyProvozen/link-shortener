@@ -7,6 +7,7 @@ import { PageMeta } from '@/atoms';
 import { META } from '@/constants/meta';
 import HomePage from '@/containers/HomePage';
 import { Star, ThreeDots, Chevron, Heart, Eye } from '@/icons';
+import FavoriteListProvider from '@/providers/FavoriteListProvider';
 import { LinksListProvider } from '@/providers/LinksListProvider';
 import { UserProvider } from '@/providers/UserProvider';
 import type { GetUserLinksReturnProps, User } from '@/types';
@@ -21,7 +22,9 @@ const Home: FC<Props> = ({ initialUser, initialHeroLinks }) => (
     <PageMeta title={META.HOME.TITLE} description={META.HOME.DESCRIPTION} />
     <UserProvider initialUser={initialUser}>
       <LinksListProvider initialLinksData={initialHeroLinks}>
-        <HomePage />
+        <FavoriteListProvider>
+          <HomePage />
+        </FavoriteListProvider>
       </LinksListProvider>
     </UserProvider>
     <div className="fixed opacity-0 pointer-events-none">

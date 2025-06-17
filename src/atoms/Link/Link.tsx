@@ -8,10 +8,12 @@ const linkVariants = {
   button: 'text-white-50 text-xl font-medium rounded-md hover:bg-pink-300 bg-pink-500 px-6 py-2.5 active:bg-pink-700',
 };
 
+export type LinkVariantsProps = keyof typeof linkVariants;
+
 type NextLinkProps = LinkProps & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 interface Props extends NextLinkProps {
-  variant?: keyof typeof linkVariants;
+  variant?: LinkVariantsProps;
 }
 
 const Link: FC<Props> = ({ variant = 'primary', children, className, ...props }) => (

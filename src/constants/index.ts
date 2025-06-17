@@ -10,6 +10,7 @@ export enum SCREEN_SIZES {
 export const enum BACKGROUND_VARIANTS {
   WAVE = 'wave',
   BLOB = 'blob',
+  CIRCLE_SCATTER = 'circle-scatter',
 }
 
 export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

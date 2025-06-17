@@ -3,14 +3,17 @@ import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { Button, Input } from '@/atoms';
 import { LinksListSkeleton } from '@/components';
 import { Arrow, HeroBGWaves, Mouse } from '@/icons';
+import { useFavoriteList } from '@/providers/FavoriteListProvider';
 import { useLinksList, useLinksListActions } from '@/providers/LinksListProvider';
 
 import LinksListItem from '../../../../components/LinksListItem';
 
 const HeroSection = () => {
   const [longLink, setLongLink] = useState('');
-  const { favoriteList, linksList, isLoading } = useLinksList();
-  const { addNewLink, toggleFavorite } = useLinksListActions();
+
+  const { linksList, isLoading } = useLinksList();
+  const { favoriteList, toggleFavorite } = useFavoriteList();
+  const { addNewLink } = useLinksListActions();
 
   const handleOnSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();

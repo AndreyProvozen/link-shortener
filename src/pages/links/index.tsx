@@ -8,6 +8,7 @@ import { LINKS_LIST_PER_PAGE } from '@/constants';
 import { META } from '@/constants/meta';
 import LinksListPage from '@/containers/LinksListPage';
 import { Eye, Heart, ThreeDots } from '@/icons';
+import FavoriteListProvider from '@/providers/FavoriteListProvider';
 import { LinksListProvider } from '@/providers/LinksListProvider';
 import { UserProvider } from '@/providers/UserProvider';
 import type { GetUserLinksReturnProps, User } from '@/types';
@@ -22,7 +23,9 @@ const LinksList: FC<Props> = ({ initialUser, initialLinksData }) => (
     <PageMeta title={META.LIST.TITLE} description={META.LIST.DESCRIPTION} noIndex />
     <UserProvider initialUser={initialUser}>
       <LinksListProvider initialLinksData={initialLinksData}>
-        <LinksListPage />
+        <FavoriteListProvider>
+          <LinksListPage />
+        </FavoriteListProvider>
       </LinksListProvider>
     </UserProvider>
     {initialUser && (

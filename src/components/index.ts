@@ -6,3 +6,4 @@ export { default as PaginationSkeleton } from './PaginationSkeleton';
 export { default as LinksListItem } from './LinksListItem';
 export { default as DeleteLinkModal } from './DeleteLinkModal';
 export { default as SettingsDropDown } from './SettingsDropDown';
+export { default as HeroSection } from './HeroSection';

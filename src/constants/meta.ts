@@ -12,4 +12,8 @@ export const META = {
     TITLE: 'Links List Page',
     DESCRIPTION: 'Explore and manage your shortened links with our Link Shortener project.',
   },
+  LINK_STATISTIC: {
+    TITLE: 'Link Statistic Page',
+    DESCRIPTION: 'Explore and manage your shortened links with our Link Shortener project.',
+  },
 };

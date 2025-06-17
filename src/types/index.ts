@@ -18,8 +18,11 @@ export type GetUserLinksReturnProps = { totalCount: number; data: LinkProps[] };
 export type LinkProps = {
   clicked: number;
   code: string;
-  createdAt: string;
-  metrics: any[];
-  updatedAt: string;
+  createdAt: Date;
+  updatedAt: Date;
   url: string;
 };
+
+export type MetricsProps = { title: string; data: Record<string, number> };
+
+export type FullLinkDataProps = LinkProps & { metrics: MetricsProps[] };
