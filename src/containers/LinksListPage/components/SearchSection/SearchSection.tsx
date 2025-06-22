@@ -1,44 +1,69 @@
 import { useRouter } from 'next/router';
-import { useEffect, useState, type FC, type ChangeEvent } from 'react';
+import { useEffect, useRef, useState, type FC, type ChangeEvent, useMemo } from 'react';
 
+import { getUserLinks } from '@/api/link';
 import { Input } from '@/atoms';
 import { Heart } from '@/icons';
+import { useLinksListActions } from '@/providers/LinksListProvider';
+
+const DEBOUNCE_DELAY = 500;
 
 const SearchSection: FC = () => {
   const { query, push, pathname } = useRouter();
+  const { setIsLoading, setLinksList, setTotalCount } = useLinksListActions();
 
-  const [link, setLink] = useState(query?.searchString || '');
+  const showFavoriteList = useMemo(() => query.favorite === 'true', [query.favorite]);
+  const initialSearchString = useMemo(() => (query.searchString as string) ?? '', [query.searchString]);
 
-  const showFavoriteList = query?.favorite === 'true';
+  const [searchString, setSearchString] = useState(initialSearchString);
+  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const updateURL = (searchStringParam: string, favoriteParam: string | boolean) => {
-    const queryParams = [searchStringParam, favoriteParam].filter(Boolean).join('&');
-    const updatedURL = queryParams ? `?${queryParams}` : pathname;
+  const updateURL = (searchStr: string, isFavorite?: boolean) => {
+    const newQuery: Record<string, string> = {};
 
-    push(updatedURL);
+    if (searchStr) newQuery.searchString = searchStr;
+    if (isFavorite) newQuery.favorite = 'true';
+
+    push({ pathname, query: newQuery }, undefined, { shallow: true });
   };
 
   useEffect(() => {
-    let timeoutId: string | number | NodeJS.Timeout;
-
-    if (link || showFavoriteList) {
-      timeoutId = setTimeout(() => updateURL(link && `searchString=${link}`, showFavoriteList && 'favorite=true'), 500);
-
-      return () => clearTimeout(timeoutId);
-    }
-    // TODO: simplify props usage
-    updateURL(link && `searchString=${link}`, showFavoriteList && 'favorite=true');
-
-    // NOTE: updateURL as a dependency make dependency cycle
+    updateURL(searchString, showFavoriteList);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [link, showFavoriteList]);
+  }, [searchString, showFavoriteList]);
 
-  const onSearchChange = (event: ChangeEvent<HTMLInputElement>) => setLink(event.target.value);
+  useEffect(() => {
+    if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
+
+    debounceTimerRef.current = setTimeout(() => {
+      const fetchLinks = async () => {
+        setIsLoading(true);
+
+        try {
+          const data = await getUserLinks({ searchString, favorite: showFavoriteList });
+
+          setLinksList(data.data);
+          setTotalCount(data.totalCount);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+
+      fetchLinks();
+    }, DEBOUNCE_DELAY);
+
+    return () => {
+      if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
+    };
+  }, [searchString, showFavoriteList, setIsLoading, setLinksList, setTotalCount]);
+
+  const onSearchChange = (event: ChangeEvent<HTMLInputElement>) => setSearchString(event.target.value);
+  const handleFavoriteClick = () => updateURL(searchString, !showFavoriteList);
 
   return (
     <div className="flex justify-between w-full items-start border-b border-white-300 pb-5 gap-5">
       <Input
-        value={link}
+        value={searchString}
         onChange={onSearchChange}
         placeholder="Enter symbols after the last slash in the URL"
         wrapperClassName="max-w-sm"
@@ -50,7 +75,7 @@ const SearchSection: FC = () => {
         className={`border-2 ${
           showFavoriteList ? 'border-pink-500 bg-pink-300/20' : 'border-white-300'
         } px-4 h-11 rounded flex gap-2 items-center`}
-        onClick={() => updateURL(link && `searchString=${link}`, !showFavoriteList && 'favorite=true')}
+        onClick={handleFavoriteClick}
       >
         <Heart width={20} height={20} className={showFavoriteList ? 'fill-pink-500' : 'fill-white-300'} />
         <p className="text-black-500 tablet-small:hidden">Favorite</p>

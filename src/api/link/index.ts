@@ -26,5 +26,5 @@ export const getUserLinks = async ({
   if (searchString) query.append('searchString', searchString);
   if (favorite) query.append('favorite', 'true');
 
-  return await customFetch<GetUserLinksReturnProps>(`links?${query.toString}`, { req, res });
+  return await customFetch<GetUserLinksReturnProps>(`links?${query.toString()}`, { req, res });
 };
