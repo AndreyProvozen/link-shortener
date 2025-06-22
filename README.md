@@ -1,6 +1,12 @@
 # Link Shortener - Frontend
 
-A modern, responsive frontend for a URL shortener service, built with **Next.js**, **React**, and **Tailwind CSS**. It provides a smooth user experience for shortening, managing, and tracking links.
+A modern, responsive frontend for a URL shortener service. It provides a smooth user experience for shortening, managing, and tracking links.
+
+## 🚀 Features
+
+- **Shorten Links**: Easily shorten long URLs into concise, shareable links.
+- **Analytics**: Track click statistics for each link.
+- **Responsive Design**: Enjoy a seamless experience on any device.
 
 ## 🛠 Stack
 
@@ -52,6 +58,13 @@ npm run dev
 ```bash
 yarn dev
 ```
+
+## 🎯 Future Plans
+
+- Update popover component to be more user-friendly
+- Add filters for links list page
+- Add functionality to add short links from links list page
+- Fix offset of the links list page
 
 ## 📜 License
 

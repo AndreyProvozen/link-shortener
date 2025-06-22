@@ -27,7 +27,7 @@ const LinkStatistic: FC<Props> = ({ linkData }) => {
       />
       {linkData && (
         <div className="container max-w-screen-desktop-small mx-auto px-5">
-          <div className="bg-white-300/20 w-full tablet:text-center rounded-lg border border-white-300 p-5 my-8 hover:border-pink-500 hover:shadow-lg">
+          <div className="bg-white-300/10 w-full tablet:text-center rounded-lg border border-white-300 p-5 my-8 hover:border-pink-500 hover:shadow-lg">
             <div className="pb-5 border-b border-white-300 text-lg font-bold truncate">{linkData.url}</div>
             <Link variant="secondary" href={shortLink} className="mt-5 border-b border-white-300 pb-5 w-full truncate">
               {shortLink}

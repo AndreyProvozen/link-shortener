@@ -2,6 +2,7 @@ import { useState, type ChangeEvent, type FormEvent } from 'react';
 
 import { Button, Input } from '@/atoms';
 import { LinksListSkeleton } from '@/components';
+import { HOME_PAGE_LINKS_PER_PAGE } from '@/constants';
 import { Arrow, HeroBGWaves, Mouse } from '@/icons';
 import { useFavoriteList } from '@/providers/FavoriteListProvider';
 import { useLinksList, useLinksListActions } from '@/providers/LinksListProvider';
@@ -21,6 +22,7 @@ const HeroSection = () => {
   };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => setLongLink(event.target.value);
+  const limitedList = linksList?.slice(0, HOME_PAGE_LINKS_PER_PAGE) || [];
 
   return (
     <>
@@ -46,7 +48,7 @@ const HeroSection = () => {
         {isLoading ? (
           <LinksListSkeleton isHomePageList />
         ) : (
-          linksList.map(linkData => {
+          limitedList.map(linkData => {
             const isFavorite = favoriteList.includes(linkData.code);
 
             return (

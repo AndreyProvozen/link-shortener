@@ -11,7 +11,7 @@ const LinksListActionsContext = createContext<ContextActionsProps | undefined>(u
 const LinksListProvider = ({ children, initialLinksData = { data: [], totalCount: 0 } }: ProviderProps) => {
   const [linksList, setLinksList] = useState(initialLinksData.data);
   const [totalCount, setTotalCount] = useState(initialLinksData.totalCount);
-  const [isLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const addNewLink = useCallback(async (url: string, callback?: () => void) => {
     const response = await createLink({ url });
@@ -41,7 +41,10 @@ const LinksListProvider = ({ children, initialLinksData = { data: [], totalCount
   }, []);
 
   const value = useMemo(() => ({ linksList, totalCount, isLoading }), [linksList, totalCount, isLoading]);
-  const actions = useMemo(() => ({ addNewLink, removeLink }), [addNewLink, removeLink]);
+  const actions = useMemo(
+    () => ({ addNewLink, removeLink, setLinksList, setTotalCount, setIsLoading }),
+    [addNewLink, removeLink]
+  );
 
   return (
     <LinksListContext.Provider value={value}>

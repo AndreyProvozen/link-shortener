@@ -4,6 +4,7 @@ import type { FC } from 'react';
 import { check } from '@/api/auth';
 import { getUserLinks } from '@/api/link';
 import { PageMeta } from '@/atoms';
+import { HOME_PAGE_LINKS_PER_PAGE } from '@/constants';
 import { META } from '@/constants/meta';
 import HomePage from '@/containers/HomePage';
 import { Star, ThreeDots, Chevron, Heart, Eye } from '@/icons';
@@ -46,7 +47,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const user = await check({ req, res });
 
   if (user) {
-    const initialHeroLinks = await getUserLinks({ limit: 3, req, res });
+    const initialHeroLinks = await getUserLinks({ limit: HOME_PAGE_LINKS_PER_PAGE, req, res });
 
     return { props: { initialUser: user, initialHeroLinks } };
   }
