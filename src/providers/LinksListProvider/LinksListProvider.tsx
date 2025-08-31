@@ -2,6 +2,7 @@ import { useCallback, useMemo, useState, createContext, useContext } from 'react
 import { toast } from 'react-toastify';
 
 import { createLink, deleteLink } from '@/api/link';
+import { NOT_FOUND_VARIANTS } from '@/constants';
 
 import type { ContextProps, ContextActionsProps, ProviderProps } from './types';
 
@@ -12,6 +13,7 @@ const LinksListProvider = ({ children, initialLinksData = { data: [], totalCount
   const [linksList, setLinksList] = useState(initialLinksData.data);
   const [totalCount, setTotalCount] = useState(initialLinksData.totalCount);
   const [isLoading, setIsLoading] = useState(false);
+  const [notFoundVariant, setNotFoundVariant] = useState<NOT_FOUND_VARIANTS>(NOT_FOUND_VARIANTS.DEFAULT);
 
   const addNewLink = useCallback(async (url: string, callback?: () => void) => {
     const response = await createLink({ url });
@@ -40,9 +42,13 @@ const LinksListProvider = ({ children, initialLinksData = { data: [], totalCount
     toast.success('Link has been deleted');
   }, []);
 
-  const value = useMemo(() => ({ linksList, totalCount, isLoading }), [linksList, totalCount, isLoading]);
+  const value = useMemo(
+    () => ({ linksList, totalCount, notFoundVariant, isLoading }),
+    [linksList, notFoundVariant, totalCount, isLoading]
+  );
+
   const actions = useMemo(
-    () => ({ addNewLink, removeLink, setLinksList, setTotalCount, setIsLoading }),
+    () => ({ addNewLink, setNotFoundVariant, removeLink, setLinksList, setTotalCount, setIsLoading }),
     [addNewLink, removeLink]
   );
 

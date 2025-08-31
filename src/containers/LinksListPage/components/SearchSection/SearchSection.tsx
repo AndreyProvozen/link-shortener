@@ -5,12 +5,13 @@ import { getUserLinks } from '@/api/link';
 import { Input } from '@/atoms';
 import { Heart } from '@/icons';
 import { useLinksListActions } from '@/providers/LinksListProvider';
+import { getNotFoundVariant } from '@/utils';
 
 const DEBOUNCE_DELAY = 500;
 
 const SearchSection: FC = () => {
   const { query, push, pathname } = useRouter();
-  const { setIsLoading, setLinksList, setTotalCount } = useLinksListActions();
+  const { setIsLoading, setLinksList, setTotalCount, setNotFoundVariant } = useLinksListActions();
 
   const showFavoriteList = useMemo(() => query.favorite === 'true', [query.favorite]);
   const initialSearchString = useMemo(() => (query.searchString as string) ?? '', [query.searchString]);
@@ -23,6 +24,8 @@ const SearchSection: FC = () => {
 
     if (searchStr) newQuery.searchString = searchStr;
     if (isFavorite) newQuery.favorite = 'true';
+
+    setNotFoundVariant(getNotFoundVariant({ isFavorite, searchString }));
 
     push({ pathname, query: newQuery }, undefined, { shallow: true });
   };

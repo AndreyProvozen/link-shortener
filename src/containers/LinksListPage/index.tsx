@@ -8,9 +8,20 @@ import { useLinksList } from '@/providers/LinksListProvider';
 
 import { SearchSection, NotFoundSection } from './components';
 
+const notFoundVariantsData = {
+  default: { title: 'You don’t have any links in your collection yet', linkText: 'Add your first one today' },
+  favorite: {
+    title: 'Your favorites list does not contain any links',
+    linkText: 'Add your first one today',
+  },
+  search: { title: 'No results were found for your current search', linkText: 'Try a different search' },
+};
+
 const LinksListPage: FC = () => {
-  const { isLoading, linksList, totalCount } = useLinksList();
+  const { isLoading, linksList, totalCount, notFoundVariant } = useLinksList();
   const { favoriteList, toggleFavorite } = useFavoriteList();
+
+  const { linkText, title } = notFoundVariantsData[notFoundVariant] || notFoundVariantsData.default;
 
   return (
     <>
@@ -29,11 +40,7 @@ const LinksListPage: FC = () => {
             <PaginationSkeleton />
           </>
         ) : totalCount === 0 ? (
-          <NotFoundSection
-            title="You currently do not have any links in your collection."
-            href="/"
-            linkText="Create new link"
-          />
+          <NotFoundSection title={title} href="/" linkText={linkText} />
         ) : (
           <>
             {linksList.map(linkData => {

@@ -1,4 +1,4 @@
-export enum SCREEN_SIZES {
+export const enum SCREEN_SIZES {
   DESKTOP_BELOW = '(max-width: 1200px)',
   DESKTOP_SMALL_BELOW = '(max-width: 1023px)',
   TABLET_BELOW = '(max-width: 767px)',
@@ -11,6 +11,12 @@ export const enum BACKGROUND_VARIANTS {
   WAVE = 'wave',
   BLOB = 'blob',
   CIRCLE_SCATTER = 'circle-scatter',
+}
+
+export const enum NOT_FOUND_VARIANTS {
+  DEFAULT = 'default',
+  SEARCH = 'search',
+  FAVORITE = 'favorite',
 }
 
 export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
