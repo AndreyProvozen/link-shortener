@@ -57,8 +57,8 @@ const LinkSettingsBar: FC<Props> = ({ link }) => {
   return (
     <>
       <div className="flex justify-between mt-4 gap-2 items-center tablet:flex-col">
-        <div className="flex gap-3">
-          <div className="border bg-orange-500/20 border-orange-500 rounded-lg flex gap-2 items-center px-3">
+        <div className="flex gap-3 mobile-small:flex-col">
+          <div className="border bg-orange-500/20 border-orange-500 rounded-lg flex gap-2 items-center px-3 py-2 mobile-small:justify-center">
             Total clicks:
             <b>{link.clicked}</b>
           </div>

@@ -7,9 +7,7 @@ import { getConfigVariable } from '@/utils';
 
 import { NotFoundSection } from '../LinksListPage/components';
 
-import { LinkSettingsBar } from './components';
-
-// import { ChartBlock, HeroBlock, LinkSettingsBar, NotFoundSection } from '@/components';
+import { ChartBlock, LinkSettingsBar } from './components';
 
 const API_URL = getConfigVariable('API_URL');
 
@@ -27,7 +25,7 @@ const LinkStatistic: FC<Props> = ({ linkData }) => {
       />
       {linkData && (
         <div className="container max-w-screen-desktop-small mx-auto px-5">
-          <div className="bg-white-300/10 w-full tablet:text-center rounded-lg border border-white-300 p-5 my-8 hover:border-pink-500 hover:shadow-lg">
+          <div className="w-full tablet:text-center rounded-lg border border-white-300 p-5 my-8 hover:border-pink-500 hover:shadow-lg">
             <div className="pb-5 border-b border-white-300 text-lg font-bold truncate">{linkData.url}</div>
             <Link variant="secondary" href={shortLink} className="mt-5 border-b border-white-300 pb-5 w-full truncate">
               {shortLink}
@@ -35,8 +33,7 @@ const LinkStatistic: FC<Props> = ({ linkData }) => {
             <LinkSettingsBar link={linkData} />
           </div>
           {linkData.metrics.length ? (
-            // <ChartBlock metrics={linkData.metrics} />
-            <div>None</div>
+            <ChartBlock metrics={linkData.metrics} />
           ) : (
             <NotFoundSection
               title="No one has followed this link before you. Be the first to know the statistics"
